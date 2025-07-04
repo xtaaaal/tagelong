@@ -2,20 +2,20 @@ import Link from "next/link";
 import { Logo } from "@/components/custom/logo";
 
 interface SocialLink {
-  id: number;
-  text: string;
-  url: string;
+  id?: number;
+  text?: string;
+  url?: string;
 }
 
 interface FooterProps {
-  data: {
-    logoText: {
-      id: number,
-      text: string,
-      url: string,
+  data?: {
+    logoText?: {
+      id?: number,
+      text?: string,
+      url?: string,
     },
-    text: string,
-    socialLink: SocialLink[],
+    text?: string,
+    socialLink?: SocialLink[],
   };
 }
 
@@ -26,23 +26,25 @@ function selectSocialIcon(url: string) {
   return null;
 }
 
-export function Footer({ data }: Readonly<FooterProps>) {
-  const { logoText, socialLink, text } = data;
+export function Footer({ data = {} }: Readonly<FooterProps>) {
+  const { logoText = {}, socialLink = [], text = '' } = data;
+  
   return (
     <div className="dark bg-gray-900 text-white py-8">
       <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between">
-        <Logo dark text={logoText.text} />
+        <Logo dark text={logoText?.text || 'Tagelong'} />
         <p className="mt-4 md:mt-0 text-sm text-gray-300">{text}</p>
         <div className="flex items-center space-x-4">
           {socialLink.map((link) => {
+            if (!link?.url) return null;
             return (
               <Link
                 className="text-white hover:text-gray-300"
                 href={link.url}
-                key={link.id}
+                key={link.id || Math.random()}
               >
                 {selectSocialIcon(link.url)}
-                <span className="sr-only">Visit us at {link.text}</span>
+                <span className="sr-only">Visit us at {link.text || 'social media'}</span>
               </Link>
             );
           })}

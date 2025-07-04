@@ -1,0 +1,49 @@
+
+{
+  "collectionName": "components_itinerary_days",
+  "info": {
+    "displayName": "Day",
+    "description": "Daily itinerary component"
+  },
+  "options": {},
+  "attributes": {
+    "dayType": {
+      "type": "enumeration",
+      "enum": ["Arrival Day", "Departure Day", "Input Number", "Other Subtitle"],
+      "default": "Input Number"
+    },
+    "dayNumber": {
+      "type": "integer",
+      "min": 1,
+      "required": false
+    },
+    "subtitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "picture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "recommendation": {
+      "type": "text",
+      "maxLength": 1000
+    },
+    "googleMapsLink": {
+      "type": "string",
+      "required": false
+    },
+    "showDistanceFromLastStop": {
+      "type": "boolean",
+      "default": false
+    },
+    "fileUpload": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["files"]
+    }
+  }
+}

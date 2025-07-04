@@ -26,6 +26,40 @@ export interface ComponentsLink extends Struct.ComponentSchema {
   };
 }
 
+export interface ItineraryDay extends Struct.ComponentSchema {
+  collectionName: 'components_itinerary_days';
+  info: {
+    description: 'Daily itinerary component';
+    displayName: 'Day';
+  };
+  attributes: {
+    dayNumber: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    dayType: Schema.Attribute.Enumeration<
+      ['Arrival Day', 'Departure Day', 'Input Number', 'Other Subtitle']
+    > &
+      Schema.Attribute.DefaultTo<'Input Number'>;
+    fileUpload: Schema.Attribute.Media<'files'>;
+    googleMapsLink: Schema.Attribute.String;
+    picture: Schema.Attribute.Media<'images'>;
+    recommendation: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 1000;
+      }>;
+    showDistanceFromLastStop: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    subtitle: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+  };
+}
+
 export interface LayoutFeaturesSection extends Struct.ComponentSchema {
   collectionName: 'components_layout_features_sections';
   info: {
@@ -81,6 +115,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'components.feature': ComponentsFeature;
       'components.link': ComponentsLink;
+      'itinerary.day': ItineraryDay;
       'layout.features-section': LayoutFeaturesSection;
       'layout.footer': LayoutFooter;
       'layout.header': LayoutHeader;

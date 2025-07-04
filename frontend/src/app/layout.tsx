@@ -23,8 +23,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const metadata = await getGlobalPageMetadata();
 
   return {
-    title: metadata?.data?.title ?? "Epic Next Course",
-    description: metadata?.data?.description ?? "Epic Next Course",
+    title: metadata?.data?.attributes?.title ?? "Tagelong",
+    description: metadata?.data?.attributes?.description ?? "Your travel companion",
   };
 }
 
@@ -34,15 +34,18 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const globalData = await getGlobalData();
+  const header = globalData?.data?.attributes?.header || {};
+  const footer = globalData?.data?.attributes?.footer || {};
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Toaster position="bottom-center" />
-        <Header data={globalData.data.header} />
+        <Header data={header} />
         {children}
-        <Footer data={globalData.data.footer} />
+        <Footer data={footer} />
       </body>
     </html>
   );

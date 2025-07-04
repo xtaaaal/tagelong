@@ -1,0 +1,91 @@
+
+{
+  "kind": "collectionType",
+  "collectionName": "itineraries",
+  "info": {
+    "singularName": "itinerary",
+    "pluralName": "itineraries",
+    "displayName": "Itinerary",
+    "description": "Travel itinerary management"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "required": true
+    },
+    "mainPicture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "country": {
+      "type": "string",
+      "required": true
+    },
+    "region": {
+      "type": "string",
+      "required": false
+    },
+    "city": {
+      "type": "string",
+      "required": false
+    },
+    "tags": {
+      "type": "enumeration",
+      "required": false,
+      "enum": [
+        "Adventure",
+        "Cultural",
+        "Food",
+        "Nature",
+        "Urban",
+        "Beach",
+        "Mountain",
+        "Historical"
+      ]
+    },
+    "price": {
+      "type": "decimal",
+      "required": false,
+      "min": 0
+    },
+    "currency": {
+      "type": "string",
+      "default": "USD",
+      "required": false
+    },
+    "isFree": {
+      "type": "boolean",
+      "default": false
+    },
+    "highlights": {
+      "type": "text",
+      "maxLength": 1000
+    },
+    "fileUpload": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "publishStatus": {
+      "type": "enumeration",
+      "default": "draft",
+      "enum": [
+        "draft",
+        "public",
+        "private"
+      ]
+    }
+  }
+}

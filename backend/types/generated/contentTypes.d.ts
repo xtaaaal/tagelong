@@ -34,6 +34,10 @@ export interface AdminApiToken extends Struct.CollectionTypeSchema {
         minLength: 1;
       }> &
       Schema.Attribute.DefaultTo<''>;
+    encryptedKey: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
     expiresAt: Schema.Attribute.DateTime;
     lastUsedAt: Schema.Attribute.DateTime;
     lifespan: Schema.Attribute.BigInteger;
@@ -434,35 +438,70 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiSummarySummary extends Struct.CollectionTypeSchema {
-  collectionName: 'summaries';
+export interface ApiItineraryItinerary extends Struct.CollectionTypeSchema {
+  collectionName: 'itineraries';
   info: {
-    description: '';
-    displayName: 'Summary';
-    pluralName: 'summaries';
-    singularName: 'summary';
+    description: 'Travel itinerary management';
+    displayName: 'Itinerary';
+    pluralName: 'itineraries';
+    singularName: 'itinerary';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    authorId: Schema.Attribute.String;
+    city: Schema.Attribute.String;
+    country: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    currency: Schema.Attribute.String & Schema.Attribute.DefaultTo<'USD'>;
+    fileUpload: Schema.Attribute.Media<'files'>;
+    highlights: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 1000;
+      }>;
+    isFree: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::summary.summary'
+      'api::itinerary.itinerary'
     > &
       Schema.Attribute.Private;
+    mainPicture: Schema.Attribute.Media<'images'>;
+    price: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
     publishedAt: Schema.Attribute.DateTime;
-    summary: Schema.Attribute.RichText;
-    title: Schema.Attribute.String;
+    publishStatus: Schema.Attribute.Enumeration<
+      ['draft', 'public', 'private']
+    > &
+      Schema.Attribute.DefaultTo<'draft'>;
+    region: Schema.Attribute.String;
+    tags: Schema.Attribute.Enumeration<
+      [
+        'Adventure',
+        'Cultural',
+        'Food',
+        'Nature',
+        'Urban',
+        'Beach',
+        'Mountain',
+        'Historical',
+      ]
+    >;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    videoId: Schema.Attribute.String;
   };
 }
 
@@ -981,7 +1020,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::global.global': ApiGlobalGlobal;
       'api::home-page.home-page': ApiHomePageHomePage;
-      'api::summary.summary': ApiSummarySummary;
+      'api::itinerary.itinerary': ApiItineraryItinerary;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -1,0 +1,615 @@
+[
+    {
+      "id": 1,
+      "documentId": "it1_tokyo_explorer",
+      "title": "Tokyo Explorer's Delight",
+      "country": "Japan",
+      "region": "Kanto",
+      "city": "Tokyo",
+      "tags": ["Urban", "Cultural", "Food"],
+      "price": 2500.00,
+      "currency": "USD",
+      "isFree": false,
+      "highlights": "Experience the perfect blend of traditional and modern Japan in this 5-day Tokyo adventure. From ancient temples to cutting-edge technology, immerse yourself in the vibrant culture of Japan's capital.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 1,
+          "__component": "itinerary.day",
+          "dayType": "Arrival Day",
+          "subtitle": "Arrival and Shinjuku",
+          "recommendation": "Arrive in Tokyo and explore the vibrant Shinjuku district. Visit the Tokyo Metropolitan Government Building for panoramic views and experience the famous Robot Restaurant show.",
+          "googleMapsLink": "https://maps.google.com/shinjuku-tokyo",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 2,
+          "__component": "itinerary.day",
+          "dayType": "Input Number",
+          "dayNumber": 2,
+          "subtitle": "Traditional Tokyo",
+          "recommendation": "Discover the traditional side of Tokyo with visits to ancient temples and shrines. Morning visit to Senso-ji Temple, explore Asakusa district, lunch at a traditional ramen shop, evening at Tokyo Skytree.",
+          "googleMapsLink": "https://maps.google.com/asakusa-tokyo",
+          "showDistanceFromLastStop": true
+        }
+      ],
+      "createdAt": "2025-06-03T10:00:00.000Z",
+      "updatedAt": "2025-06-03T10:00:00.000Z",
+      "publishedAt": "2025-06-03T10:00:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 2,
+      "documentId": "it2_parisian_romance",
+      "title": "Parisian Romance",
+      "country": "France",
+      "region": "Île-de-France",
+      "city": "Paris",
+      "tags": ["Cultural", "Urban", "Historical"],
+      "price": 1800.00,
+      "currency": "EUR",
+      "isFree": false,
+      "highlights": "Fall in love with the City of Light through this romantic 4-day journey. From iconic landmarks to hidden cafes, experience the magic of Paris.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 3,
+          "__component": "itinerary.day",
+          "dayType": "Input Number",
+          "dayNumber": 1,
+          "subtitle": "Classic Paris",
+          "recommendation": "Begin your Parisian adventure with the city's most iconic landmarks. Eiffel Tower visit, Seine River cruise, lunch at a traditional bistro, evening at Montmartre.",
+          "googleMapsLink": "https://maps.google.com/eiffel-tower-paris",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T10:30:00.000Z",
+      "updatedAt": "2025-06-03T10:30:00.000Z",
+      "publishedAt": "2025-06-03T10:30:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 3,
+      "documentId": "it3_bali_wellness",
+      "title": "Bali Wellness Retreat",
+      "country": "Indonesia",
+      "region": "Bali",
+      "city": "Ubud",
+      "tags": ["Nature", "Cultural", "Adventure"],
+      "price": 1200.00,
+      "currency": "USD",
+      "isFree": false,
+      "highlights": "Reconnect with nature and yourself in this 7-day wellness retreat in the heart of Bali. Experience yoga, meditation, and traditional Balinese healing practices.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 4,
+          "__component": "itinerary.day",
+          "dayType": "Arrival Day",
+          "subtitle": "Arrival and Orientation",
+          "recommendation": "Begin your wellness journey with a traditional welcome ceremony and orientation. Airport pickup, welcome ceremony, yoga session, traditional dinner.",
+          "googleMapsLink": "https://maps.google.com/ubud-bali",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T11:00:00.000Z",
+      "updatedAt": "2025-06-03T11:00:00.000Z",
+      "publishedAt": "2025-06-03T11:00:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 4,
+      "documentId": "it4_nyc_explorer",
+      "title": "New York City Explorer",
+      "country": "USA",
+      "region": "New York",
+      "city": "New York City",
+      "tags": ["Urban", "Cultural", "Food"],
+      "price": 2000.00,
+      "currency": "USD",
+      "isFree": false,
+      "highlights": "Experience the energy of the Big Apple in this 5-day adventure. From Broadway shows to world-class museums, discover why NYC is the city that never sleeps.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 5,
+          "__component": "itinerary.day",
+          "dayType": "Input Number",
+          "dayNumber": 1,
+          "subtitle": "Manhattan Highlights",
+          "recommendation": "Start your NYC adventure with the city's most famous landmarks. Central Park morning walk, Metropolitan Museum of Art, Times Square exploration, Broadway show in the evening.",
+          "googleMapsLink": "https://maps.google.com/times-square-nyc",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T11:30:00.000Z",
+      "updatedAt": "2025-06-03T11:30:00.000Z",
+      "publishedAt": "2025-06-03T11:30:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 5,
+      "documentId": "it5_santorini_sunset",
+      "title": "Santorini Sunset Experience",
+      "country": "Greece",
+      "region": "South Aegean",
+      "city": "Santorini",
+      "tags": ["Beach", "Cultural", "Nature"],
+      "price": 1500.00,
+      "currency": "EUR",
+      "isFree": false,
+      "highlights": "Immerse yourself in the beauty of Santorini with this 4-day island escape. Experience stunning sunsets, ancient ruins, and Mediterranean cuisine.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 6,
+          "__component": "itinerary.day",
+          "dayType": "Arrival Day",
+          "subtitle": "Arrival and Oia",
+          "recommendation": "Begin your Santorini adventure in the picturesque town of Oia. Airport transfer, Oia village exploration, sunset viewing, traditional Greek dinner.",
+          "googleMapsLink": "https://maps.google.com/oia-santorini",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T12:00:00.000Z",
+      "updatedAt": "2025-06-03T12:00:00.000Z",
+      "publishedAt": "2025-06-03T12:00:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 6,
+      "documentId": "it6_swiss_alps",
+      "title": "Swiss Alps Adventure",
+      "country": "Switzerland",
+      "region": "Bernese Oberland",
+      "city": "Interlaken",
+      "tags": ["Mountain", "Adventure", "Nature"],
+      "price": 2200.00,
+      "currency": "CHF",
+      "isFree": false,
+      "highlights": "Experience the majesty of the Swiss Alps in this 6-day adventure. From hiking to paragliding, discover the thrill of mountain activities.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 7,
+          "__component": "itinerary.day",
+          "dayType": "Arrival Day",
+          "subtitle": "Arrival and Orientation",
+          "recommendation": "Begin your alpine adventure with an orientation and easy hike. Airport transfer, equipment fitting, easy mountain hike, welcome dinner.",
+          "googleMapsLink": "https://maps.google.com/interlaken-switzerland",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T12:30:00.000Z",
+      "updatedAt": "2025-06-03T12:30:00.000Z",
+      "publishedAt": "2025-06-03T12:30:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 7,
+      "documentId": "it7_bangkok_food",
+      "title": "Bangkok Street Food Tour",
+      "country": "Thailand",
+      "region": "Central",
+      "city": "Bangkok",
+      "tags": ["Food", "Cultural", "Urban"],
+      "price": 800.00,
+      "currency": "USD",
+      "isFree": false,
+      "highlights": "Discover the vibrant street food scene of Bangkok in this 4-day culinary adventure. From night markets to cooking classes, experience authentic Thai cuisine.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 8,
+          "__component": "itinerary.day",
+          "dayType": "Input Number",
+          "dayNumber": 1,
+          "subtitle": "Old Bangkok",
+          "recommendation": "Start your food journey in Bangkok's historic district. Morning market visit, cooking class, temple visits, night market food tour.",
+          "googleMapsLink": "https://maps.google.com/old-bangkok",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T13:00:00.000Z",
+      "updatedAt": "2025-06-03T13:00:00.000Z",
+      "publishedAt": "2025-06-03T13:00:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 8,
+      "documentId": "it8_costa_rica_eco",
+      "title": "Costa Rica Eco Adventure",
+      "country": "Costa Rica",
+      "region": "Guanacaste",
+      "city": "Tamarindo",
+      "tags": ["Nature", "Adventure", "Beach"],
+      "price": 1600.00,
+      "currency": "USD",
+      "isFree": false,
+      "highlights": "Experience the natural wonders of Costa Rica in this 7-day eco-adventure. From rainforests to beaches, discover the country's rich biodiversity.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 9,
+          "__component": "itinerary.day",
+          "dayType": "Arrival Day",
+          "subtitle": "Arrival and Beach",
+          "recommendation": "Begin your eco-adventure with a beach day and orientation. Airport transfer, beach time, wildlife watching, welcome dinner.",
+          "googleMapsLink": "https://maps.google.com/tamarindo-costa-rica",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T13:30:00.000Z",
+      "updatedAt": "2025-06-03T13:30:00.000Z",
+      "publishedAt": "2025-06-03T13:30:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 9,
+      "documentId": "it9_venice_cultural",
+      "title": "Venice Cultural Journey",
+      "country": "Italy",
+      "region": "Veneto",
+      "city": "Venice",
+      "tags": ["Cultural", "Historical", "Food"],
+      "price": 1400.00,
+      "currency": "EUR",
+      "isFree": false,
+      "highlights": "Experience the magic of Venice in this 4-day cultural journey. From gondola rides to art museums, discover the city's rich heritage.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 10,
+          "__component": "itinerary.day",
+          "dayType": "Input Number",
+          "dayNumber": 1,
+          "subtitle": "Classic Venice",
+          "recommendation": "Begin your Venetian adventure with the city's most famous landmarks. St. Mark's Basilica, Doge's Palace, gondola ride, traditional dinner.",
+          "googleMapsLink": "https://maps.google.com/san-marco-venice",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T14:00:00.000Z",
+      "updatedAt": "2025-06-03T14:00:00.000Z",
+      "publishedAt": "2025-06-03T14:00:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 10,
+      "documentId": "it10_dubai_luxury",
+      "title": "Dubai Luxury Experience",
+      "country": "UAE",
+      "region": "Dubai",
+      "city": "Dubai",
+      "tags": ["Urban", "Cultural", "Adventure"],
+      "price": 3000.00,
+      "currency": "USD",
+      "isFree": false,
+      "highlights": "Experience the luxury and excitement of Dubai in this 5-day adventure. From desert safaris to world-class shopping, discover the city's modern wonders.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 11,
+          "__component": "itinerary.day",
+          "dayType": "Input Number",
+          "dayNumber": 1,
+          "subtitle": "Modern Dubai",
+          "recommendation": "Begin your Dubai adventure with the city's iconic landmarks. Burj Khalifa visit, Dubai Mall shopping, desert safari, traditional dinner.",
+          "googleMapsLink": "https://maps.google.com/burj-khalifa-dubai",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T14:30:00.000Z",
+      "updatedAt": "2025-06-03T14:30:00.000Z",
+      "publishedAt": "2025-06-03T14:30:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 11,
+      "documentId": "it11_kyoto_cultural",
+      "title": "Kyoto Cultural Immersion",
+      "country": "Japan",
+      "region": "Kansai",
+      "city": "Kyoto",
+      "tags": ["Cultural", "Historical", "Food"],
+      "price": 1800.00,
+      "currency": "USD",
+      "isFree": false,
+      "highlights": "Immerse yourself in traditional Japanese culture in this 5-day Kyoto journey. From tea ceremonies to temple visits, experience the heart of Japan.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 12,
+          "__component": "itinerary.day",
+          "dayType": "Input Number",
+          "dayNumber": 1,
+          "subtitle": "Traditional Kyoto",
+          "recommendation": "Begin your cultural journey with Kyoto's most famous temples. Kinkaku-ji visit, tea ceremony, traditional lunch, evening in Gion.",
+          "googleMapsLink": "https://maps.google.com/kinkaku-ji-kyoto",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T15:00:00.000Z",
+      "updatedAt": "2025-06-03T15:00:00.000Z",
+      "publishedAt": "2025-06-03T15:00:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 12,
+      "documentId": "it12_barcelona_art",
+      "title": "Barcelona Art & Architecture",
+      "country": "Spain",
+      "region": "Catalonia",
+      "city": "Barcelona",
+      "tags": ["Cultural", "Urban", "Historical"],
+      "price": 1600.00,
+      "currency": "EUR",
+      "isFree": false,
+      "highlights": "Discover the artistic and architectural wonders of Barcelona in this 4-day journey. From Gaudi's masterpieces to vibrant markets, experience the city's creative spirit.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 13,
+          "__component": "itinerary.day",
+          "dayType": "Input Number",
+          "dayNumber": 1,
+          "subtitle": "Gaudi's Barcelona",
+          "recommendation": "Begin your artistic journey with Gaudi's most famous works. Sagrada Familia visit, Park Güell exploration, La Boqueria market, evening tapas tour.",
+          "googleMapsLink": "https://maps.google.com/sagrada-familia-barcelona",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T15:30:00.000Z",
+      "updatedAt": "2025-06-03T15:30:00.000Z",
+      "publishedAt": "2025-06-03T15:30:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 13,
+      "documentId": "it13_cape_town",
+      "title": "Cape Town Adventure",
+      "country": "South Africa",
+      "region": "Western Cape",
+      "city": "Cape Town",
+      "tags": ["Adventure", "Nature", "Cultural"],
+      "price": 2000.00,
+      "currency": "USD",
+      "isFree": false,
+      "highlights": "Experience the natural beauty and adventure of Cape Town in this 6-day journey. From Table Mountain to wine country, discover South Africa's most vibrant city.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 14,
+          "__component": "itinerary.day",
+          "dayType": "Input Number",
+          "dayNumber": 1,
+          "subtitle": "City Introduction",
+          "recommendation": "Begin your Cape Town adventure with the city's iconic landmarks. Table Mountain hike, V&A Waterfront, Robben Island tour, sunset at Signal Hill.",
+          "googleMapsLink": "https://maps.google.com/table-mountain-cape-town",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T16:00:00.000Z",
+      "updatedAt": "2025-06-03T16:00:00.000Z",
+      "publishedAt": "2025-06-03T16:00:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 14,
+      "documentId": "it14_amsterdam_cultural",
+      "title": "Amsterdam Cultural Tour",
+      "country": "Netherlands",
+      "region": "North Holland",
+      "city": "Amsterdam",
+      "tags": ["Cultural", "Urban", "Historical"],
+      "price": 1200.00,
+      "currency": "EUR",
+      "isFree": false,
+      "highlights": "Discover the cultural treasures of Amsterdam in this 4-day journey. From world-class museums to historic canals, experience the city's rich heritage.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 15,
+          "__component": "itinerary.day",
+          "dayType": "Input Number",
+          "dayNumber": 1,
+          "subtitle": "Museum District",
+          "recommendation": "Begin your cultural journey with Amsterdam's famous museums. Rijksmuseum visit, Van Gogh Museum, canal cruise, traditional dinner.",
+          "googleMapsLink": "https://maps.google.com/rijksmuseum-amsterdam",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T16:30:00.000Z",
+      "updatedAt": "2025-06-03T16:30:00.000Z",
+      "publishedAt": "2025-06-03T16:30:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 15,
+      "documentId": "it15_sydney_coastal",
+      "title": "Sydney Coastal Adventure",
+      "country": "Australia",
+      "region": "New South Wales",
+      "city": "Sydney",
+      "tags": ["Beach", "Urban", "Adventure"],
+      "price": 2200.00,
+      "currency": "AUD",
+      "isFree": false,
+      "highlights": "Experience the best of Sydney in this 5-day coastal adventure. From iconic beaches to the Opera House, discover Australia's most famous city.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 16,
+          "__component": "itinerary.day",
+          "dayType": "Input Number",
+          "dayNumber": 1,
+          "subtitle": "City Highlights",
+          "recommendation": "Begin your Sydney adventure with the city's most famous landmarks. Opera House tour, Harbour Bridge walk, Bondi Beach, evening harbor cruise.",
+          "googleMapsLink": "https://maps.google.com/sydney-opera-house",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T17:00:00.000Z",
+      "updatedAt": "2025-06-03T17:00:00.000Z",
+      "publishedAt": "2025-06-03T17:00:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 16,
+      "documentId": "it16_marrakech_cultural",
+      "title": "Marrakech Cultural Experience",
+      "country": "Morocco",
+      "region": "Marrakech-Safi",
+      "city": "Marrakech",
+      "tags": ["Cultural", "Historical", "Food"],
+      "price": 1000.00,
+      "currency": "USD",
+      "isFree": false,
+      "highlights": "Immerse yourself in the vibrant culture of Marrakech in this 4-day journey. From bustling souks to traditional riads, experience the magic of Morocco.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 17,
+          "__component": "itinerary.day",
+          "dayType": "Input Number",
+          "dayNumber": 1,
+          "subtitle": "Old Medina",
+          "recommendation": "Begin your Marrakech adventure in the historic medina. Jemaa el-Fnaa visit, souk exploration, traditional lunch, evening market.",
+          "googleMapsLink": "https://maps.google.com/jemaa-el-fnaa-marrakech",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T17:30:00.000Z",
+      "updatedAt": "2025-06-03T17:30:00.000Z",
+      "publishedAt": "2025-06-03T17:30:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 17,
+      "documentId": "it17_vancouver_nature",
+      "title": "Vancouver Nature Explorer",
+      "country": "Canada",
+      "region": "British Columbia",
+      "city": "Vancouver",
+      "tags": ["Nature", "Urban", "Adventure"],
+      "price": 1800.00,
+      "currency": "CAD",
+      "isFree": false,
+      "highlights": "Discover the natural beauty of Vancouver in this 5-day adventure. From mountains to ocean, experience Canada's most livable city.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 18,
+          "__component": "itinerary.day",
+          "dayType": "Input Number",
+          "dayNumber": 1,
+          "subtitle": "City and Nature",
+          "recommendation": "Begin your Vancouver adventure with a mix of urban and natural attractions. Stanley Park, Granville Island, Capilano Suspension Bridge, sunset at English Bay.",
+          "googleMapsLink": "https://maps.google.com/stanley-park-vancouver",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T18:00:00.000Z",
+      "updatedAt": "2025-06-03T18:00:00.000Z",
+      "publishedAt": "2025-06-03T18:00:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 18,
+      "documentId": "it18_seoul_food",
+      "title": "Seoul Food & Culture Tour",
+      "country": "South Korea",
+      "region": "Seoul",
+      "city": "Seoul",
+      "tags": ["Food", "Cultural", "Urban"],
+      "price": 1500.00,
+      "currency": "USD",
+      "isFree": false,
+      "highlights": "Experience the vibrant food and culture of Seoul in this 5-day journey. From street food to palaces, discover the heart of South Korea.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 19,
+          "__component": "itinerary.day",
+          "dayType": "Input Number",
+          "dayNumber": 1,
+          "subtitle": "Traditional Seoul",
+          "recommendation": "Begin your Seoul adventure with traditional culture and food. Gyeongbokgung Palace, traditional market visit, Korean cooking class, evening in Myeongdong.",
+          "googleMapsLink": "https://maps.google.com/gyeongbokgung-palace-seoul",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T18:30:00.000Z",
+      "updatedAt": "2025-06-03T18:30:00.000Z",
+      "publishedAt": "2025-06-03T18:30:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 19,
+      "documentId": "it19_rio_carnival",
+      "title": "Rio de Janeiro Carnival",
+      "country": "Brazil",
+      "region": "Rio de Janeiro",
+      "city": "Rio de Janeiro",
+      "tags": ["Cultural", "Beach", "Adventure"],
+      "price": 2500.00,
+      "currency": "USD",
+      "isFree": false,
+      "highlights": "Experience the excitement of Rio de Janeiro in this 6-day adventure. From Carnival to beaches, discover the energy of Brazil's most famous city.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 20,
+          "__component": "itinerary.day",
+          "dayType": "Input Number",
+          "dayNumber": 1,
+          "subtitle": "City Introduction",
+          "recommendation": "Begin your Rio adventure with the city's most famous landmarks. Christ the Redeemer, Copacabana Beach, Sugarloaf Mountain, evening samba show.",
+          "googleMapsLink": "https://maps.google.com/christ-redeemer-rio",
+          "showDistanceFromLastStop": false
+        }
+      ],
+      "createdAt": "2025-06-03T19:00:00.000Z",
+      "updatedAt": "2025-06-03T19:00:00.000Z",
+      "publishedAt": "2025-06-03T19:00:00.000Z",
+      "locale": null
+    },
+    {
+      "id": 20,
+      "documentId": "it20_hawaii_hopping",
+      "title": "Hawaii Island Hopping",
+      "country": "USA",
+      "region": "Hawaii",
+      "city": "Honolulu",
+      "tags": ["Beach", "Nature", "Adventure"],
+      "price": 2800.00,
+      "currency": "USD",
+      "isFree": false,
+      "highlights": "Discover the beauty of Hawaii in this 7-day island hopping adventure. From volcanoes to beaches, experience the magic of the Pacific islands.",
+      "publishStatus": "public",
+      "days": [
+        {
+          "id": 21,
+          "__component": "itinerary.day",
+          "dayType": "Arrival Day",
+          "subtitle": "Oahu Introduction",
+          "recommendation": "Begin your Hawaiian adventure on the island of Oahu. Waikiki Beach, Pearl Harbor visit, Diamond Head hike, traditional luau.",
+          "googleMapsLink": "https://maps.google.com/waikiki-beach-hawaii",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 22,
+          "__component": "itinerary.day",
+          "dayType": "Departure Day",
+          "subtitle": "Island Hopping",
+          "recommendation": "Continue your island adventure exploring different Hawaiian islands. Inter-island flight, volcano exploration, beach activities, farewell dinner.",
+          "googleMapsLink": "https://maps.google.com/hawaii-volcanoes",
+          "showDistanceFromLastStop": true
+        }
+      ],
+      "createdAt": "2025-06-03T19:30:00.000Z",
+      "updatedAt": "2025-06-03T19:30:00.000Z",
+      "publishedAt": "2025-06-03T19:30:00.000Z",
+      "locale": null
+    }
+  ]
