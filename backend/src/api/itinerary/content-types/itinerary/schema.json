@@ -1,4 +1,3 @@
-
 {
   "kind": "collectionType",
   "collectionName": "itineraries",
@@ -86,6 +85,11 @@
         "public",
         "private"
       ]
+    },
+    "Day": {
+      "type": "component",
+      "component": "itinerary.day",
+      "repeatable": true
     }
   }
 }

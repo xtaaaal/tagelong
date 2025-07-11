@@ -456,6 +456,7 @@ export interface ApiItineraryItinerary extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     currency: Schema.Attribute.String & Schema.Attribute.DefaultTo<'USD'>;
+    Day: Schema.Attribute.Component<'itinerary.day', true>;
     fileUpload: Schema.Attribute.Media<'files'>;
     highlights: Schema.Attribute.Text &
       Schema.Attribute.SetMinMaxLength<{
