@@ -6,6 +6,9 @@
     "description": "Daily itinerary component"
   },
   "options": {},
+  "settings": {
+    "mainField": "subtitle"
+  },
   "attributes": {
     "dayType": {
       "type": "enumeration",
