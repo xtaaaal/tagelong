@@ -10,6 +10,9 @@
   "options": {
     "draftAndPublish": true
   },
+  "settings": {
+    "mainField": "title"
+  },
   "pluginOptions": {},
   "attributes": {
     "title": {
