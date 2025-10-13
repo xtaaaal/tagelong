@@ -7,20 +7,49 @@ import { getAuthToken } from "./services/get-token";
 async function fetchData(url: string) {
   const authToken = await getAuthToken();
 
-  const headers = {
+  const fetchOptions: RequestInit = {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${authToken}`,
+      ...(authToken && { Authorization: `Bearer ${authToken}` }),
     },
   };
 
   try {
-    const response = await fetch(url, authToken ? headers : {});
+    const response = await fetch(url, fetchOptions);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Error fetching data:", error);
+    // Silently handle expected errors (like 403 for unauthorized endpoints)
+    return { data: null }; // Return null data instead of throwing
+  }
+}
+
+// Separate function for public endpoints that don't require authentication
+async function fetchPublicData(url: string) {
+  const fetchOptions: RequestInit = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  try {
+    const response = await fetch(url, fetchOptions);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    // Silently handle fetch errors for public endpoints
     return { data: null }; // Return null data instead of throwing
   }
 }
@@ -119,9 +148,32 @@ export async function getItineraries(queryString: string, currentPage: number) {
   
   const url = new URL("/api/itineraries", baseUrl);
   url.search = query;
-  return fetchData(url.href);
+  return fetchPublicData(url.href);
 }
 
 export async function getItineraryById(itineraryId: string) {
-  return fetchData(`${baseUrl}/api/itineraries/${itineraryId}?populate=*`);
+  return fetchPublicData(`${baseUrl}/api/itineraries/${itineraryId}?populate=*`);
+}
+
+export async function getPopularItineraries(limit = 12) {
+  const query = qs.stringify({
+    sort: ["createdAt:desc"],
+    filters: {
+      publishStatus: { $eq: "public" }
+    },
+    populate: {
+      mainPicture: {
+        fields: ["url", "alternativeText"]
+      }
+    },
+    pagination: {
+      pageSize: limit,
+      page: 1
+    }
+  });
+  
+  const url = new URL("/api/itineraries", baseUrl);
+  url.search = query;
+  
+  return await fetchPublicData(url.href);
 }

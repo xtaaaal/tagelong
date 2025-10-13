@@ -24,7 +24,7 @@ interface HeaderProps {
 function LoggedInUser({ userData }: { readonly userData: any }) {
   return (
     <div className="flex items-center gap-4">
-      <span className="text-sm text-gray-700 dark:text-gray-300">
+      <span className="text-sm text-text-secondary dark:text-text-inverse">
         {userData.username}
       </span>
       <LogoutButton />
@@ -37,17 +37,19 @@ export async function Header({ data = {} }: Readonly<HeaderProps>) {
   const user = await getUserMeLoader();
 
   return (
-    <div className="flex items-center justify-between px-4 py-3 bg-white shadow-md dark:bg-gray-800">
-      <Logo text={logoText?.text || 'Tagelong'} />
-      <div className="flex items-center gap-4">
-        {user.ok ? (
-          <LoggedInUser userData={user.data} />
-        ) : (
-          <Link href={ctaButton?.url || '/signin'}>
-            <Button>{ctaButton?.text || 'Sign In'}</Button>
-          </Link>
-        )}
+    <header className="sticky top-0 z-50 bg-white shadow-md dark:bg-navy-800 border-b border-navy-200 dark:border-navy-700">
+      <div className="flex items-center justify-between px-4 py-3 max-w-7xl mx-auto">
+        <Logo text={logoText?.text || 'Tagelong'} />
+        <div className="flex items-center gap-4">
+          {user.ok ? (
+            <LoggedInUser userData={user.data} />
+          ) : (
+            <Link href={ctaButton?.url || '/signin'}>
+              <Button>{ctaButton?.text || 'Sign In'}</Button>
+            </Link>
+          )}
+        </div>
       </div>
-    </div>
+    </header>
   );
 }

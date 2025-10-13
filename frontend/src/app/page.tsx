@@ -1,33 +1,14 @@
-import { getHomePageData } from "@/data/loaders";
-
-import { HeroSection } from "@/components/custom/hero-section";
-import { FeatureSection } from "@/components/custom/features-section";
+import { getHomePageData, getPopularItineraries } from "@/data/loaders";
+import HomePageClient from "@/components/custom/homepage-client";
 
 export default async function Home() {
-  const strapiData = await getHomePageData();
-  const blocks = strapiData?.data?.attributes?.blocks || [];
+  // Fetch itineraries data
+  const itinerariesResponse = await getPopularItineraries(12);
+  const itineraries = itinerariesResponse?.data || [];
 
-  if (!blocks.length) {
-    return (
-      <main className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-6">Welcome to Tagelong</h1>
-        <p className="text-lg mb-4">Your travel companion for amazing adventures.</p>
-        <p className="text-lg">Start exploring our itineraries to plan your next journey.</p>
-      </main>
-    );
-  }
+  // If you still want to support the old block-based system, you can keep this
+  // const strapiData = await getHomePageData();
+  // const blocks = strapiData?.data?.attributes?.blocks || [];
 
-  return (
-    <main>
-      {blocks.map((block: any) => {
-        const Component = blockComponents[block.__component as keyof typeof blockComponents];
-        return Component ? <Component key={block.id} data={block} /> : null;
-      })}
-    </main>
-  );
+  return <HomePageClient initialItineraries={itineraries} />;
 }
-
-const blockComponents = {
-  "layout.hero-section": HeroSection,
-  "layout.features-section": FeatureSection,
-};

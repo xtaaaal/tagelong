@@ -10,6 +10,48 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Custom Brand Colors - Tagelong Orange (#F69E20)
+        brand: {
+          50: "#fef9e7",   // Very light orange
+          100: "#fef3c7",  // Light orange
+          200: "#fde68a",  // Light orange
+          300: "#fcd34d",  // Medium-light orange
+          400: "#f9b84c",  // Medium orange
+          500: "#F69E20",  // Main brand orange (Tagelong primary)
+          600: "#d97917",  // Dark orange
+          700: "#b45309",  // Darker orange
+          800: "#92400e",  // Very dark orange
+          900: "#78350f",  // Darkest orange
+        },
+        // Secondary Navy Color (#232939)
+        navy: {
+          50: "#f8f9fb",   // Very light navy
+          100: "#f1f3f7",  // Light navy
+          200: "#e4e8ef",  // Light navy
+          300: "#d1d7e3",  // Medium-light navy
+          400: "#9ca5b8",  // Medium navy
+          500: "#232939",  // Main navy (Tagelong secondary)
+          600: "#1e2330",  // Dark navy
+          700: "#191d27",  // Darker navy
+          800: "#14171e",  // Very dark navy
+          900: "#0f1115",  // Darkest navy
+        },
+        // Custom Text Colors
+        text: {
+          primary: "#1D1D1D",    // Main text color
+          secondary: "#6b7280",  // Secondary text (gray-500)
+          muted: "#9ca3af",      // Muted text (gray-400)
+          inverse: "#ffffff",    // White text for dark backgrounds
+        },
+        // Custom Accent Colors
+        tagelong: {
+          pink: "#ec4899",   // Pink accent (matches your gradient)
+          purple: "#8b5cf6", // Purple accent
+          blue: "#3b82f6",   // Blue accent
+          green: "#10b981",  // Green accent
+          yellow: "#f59e0b", // Yellow accent
+        },
+        // Keep existing ShadCN colors
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

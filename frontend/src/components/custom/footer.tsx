@@ -30,16 +30,16 @@ export function Footer({ data = {} }: Readonly<FooterProps>) {
   const { logoText = {}, socialLink = [], text = '' } = data;
   
   return (
-    <div className="dark bg-gray-900 text-white py-8">
+    <div className="dark bg-navy-900 text-white py-8">
       <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between">
         <Logo dark text={logoText?.text || 'Tagelong'} />
-        <p className="mt-4 md:mt-0 text-sm text-gray-300">{text}</p>
+        <p className="mt-4 md:mt-0 text-sm text-navy-300">{text}</p>
         <div className="flex items-center space-x-4">
           {socialLink.map((link) => {
             if (!link?.url) return null;
             return (
               <Link
-                className="text-white hover:text-gray-300"
+                className="text-white hover:text-navy-300"
                 href={link.url}
                 key={link.id || Math.random()}
               >

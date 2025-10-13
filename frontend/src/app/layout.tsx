@@ -20,12 +20,19 @@ const geistMono = localFont({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const metadata = await getGlobalPageMetadata();
-
-  return {
-    title: metadata?.data?.attributes?.title ?? "Tagelong",
-    description: metadata?.data?.attributes?.description ?? "Your travel companion",
-  };
+  try {
+    const metadata = await getGlobalPageMetadata();
+    return {
+      title: metadata?.data?.attributes?.title ?? "Tagelong",
+      description: metadata?.data?.attributes?.description ?? "Your travel companion",
+    };
+  } catch (error) {
+    console.warn("Failed to load global metadata, using fallback:", error);
+    return {
+      title: "Tagelong",
+      description: "Your travel companion"
+    };
+  }
 }
 
 export default async function RootLayout({
@@ -33,9 +40,17 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const globalData = await getGlobalData();
-  const header = globalData?.data?.attributes?.header || {};
-  const footer = globalData?.data?.attributes?.footer || {};
+  let header = {};
+  let footer = {};
+
+  try {
+    const globalData = await getGlobalData();
+    header = globalData?.data?.attributes?.header || {};
+    footer = globalData?.data?.attributes?.footer || {};
+  } catch (error) {
+    console.warn("Failed to load global data, using fallback header/footer:", error);
+    // Use empty objects as fallback - components will handle missing data gracefully
+  }
 
   return (
     <html lang="en">

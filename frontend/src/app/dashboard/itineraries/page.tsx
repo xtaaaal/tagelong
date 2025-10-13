@@ -38,7 +38,7 @@ function ItineraryCard({ documentId, title, country, city, mainPicture, price, c
           <CardTitle className="leading-8 text-pink-500">
             {title}
           </CardTitle>
-          <div className="text-sm text-gray-600">
+          <div className="text-sm text-text-secondary">
             {city ? `${city}, ` : ''}{country}
           </div>
         </CardHeader>
@@ -47,13 +47,13 @@ function ItineraryCard({ documentId, title, country, city, mainPicture, price, c
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded-full"
+                className="px-2 py-1 text-xs bg-navy-100 text-text-secondary rounded-full"
               >
                 {tag}
               </span>
             ))}
           </div>
-          <div className="text-lg font-semibold text-gray-900">
+          <div className="text-lg font-semibold text-text-primary">
             {isFree ? 'Free' : `${price} ${currency || 'USD'}`}
           </div>
         </CardContent>
