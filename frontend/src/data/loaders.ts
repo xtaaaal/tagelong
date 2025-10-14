@@ -158,9 +158,8 @@ export async function getItineraryById(itineraryId: string) {
 export async function getPopularItineraries(limit = 12) {
   const query = qs.stringify({
     sort: ["createdAt:desc"],
-    filters: {
-      publishStatus: { $eq: "public" }
-    },
+    // Remove the publishStatus filter to get all published content
+    // In Strapi 5, published content is accessible by default via public API
     populate: {
       mainPicture: {
         fields: ["url", "alternativeText"]
