@@ -15,9 +15,9 @@ import {
 import Link from "next/link";
 
 interface ItineraryDetailPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function ItineraryDetailPage({ params }: ItineraryDetailPageProps) {
