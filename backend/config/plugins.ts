@@ -1,5 +1,5 @@
 export default ({env}) => ({
-    email: {
+  email: {
     config: {
       provider: 'nodemailer',
       providerOptions: {
@@ -16,4 +16,22 @@ export default ({env}) => ({
       },
     },
   },
+  // Conditional upload provider based on environment
+  ...(env('NODE_ENV') === 'production' && env('CLOUDINARY_NAME') ? {
+    upload: {
+      config: {
+        provider: 'cloudinary',
+        providerOptions: {
+          cloud_name: env('CLOUDINARY_NAME'),
+          api_key: env('CLOUDINARY_KEY'),
+          api_secret: env('CLOUDINARY_SECRET'),
+        },
+        actionOptions: {
+          upload: {},
+          uploadStream: {},
+          delete: {},
+        },
+      },
+    },
+  } : {}),
 });

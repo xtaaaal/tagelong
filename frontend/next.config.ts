@@ -23,11 +23,27 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https", 
-        hostname: "your-strapi-domain.com", // Replace with your production domain
+        hostname: "*.railway.app", // Railway backend domain
         pathname: "/uploads/**/*",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com", // Cloudinary CDN
+        pathname: "/**/*",
       }
     ],
   },
+  // Environment variables for client-side
+  env: {
+    NEXT_PUBLIC_STRAPI_URL: process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337",
+  },
+  // Production optimizations
+  ...(process.env.NODE_ENV === 'production' && {
+    output: 'standalone',
+    experimental: {
+      optimizeCss: true,
+    },
+  }),
 };
 
 export default nextConfig;
