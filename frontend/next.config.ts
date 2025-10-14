@@ -40,9 +40,6 @@ const nextConfig: NextConfig = {
   // Production optimizations
   ...(process.env.NODE_ENV === 'production' && {
     output: 'standalone',
-    experimental: {
-      optimizeCss: true,
-    },
   }),
 };
 
