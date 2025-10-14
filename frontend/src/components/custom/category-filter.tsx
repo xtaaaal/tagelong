@@ -2,38 +2,23 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { 
-  Crown, 
-  Mountain, 
-  Palette, 
-  DollarSign, 
-  Building2, 
-  UtensilsCrossed, 
-  Leaf, 
-  Trees, 
-  MapPin, 
-  Users, 
-  Waves, 
-  Sparkles, 
-  Heart, 
-  Dumbbell
-} from "lucide-react";
+import Image from "next/image";
 
 const categories = [
-  { id: "popular", label: "Popular", icon: Crown },
-  { id: "adventure", label: "Adventure", icon: Mountain },
-  { id: "art", label: "Art", icon: Palette },
-  { id: "budget", label: "Budget", icon: DollarSign },
-  { id: "cultural", label: "Cultural", icon: Building2 },
-  { id: "culinary", label: "Culinary", icon: UtensilsCrossed },
-  { id: "eco-tourism", label: "Eco-Tourism", icon: Leaf },
-  { id: "family", label: "Family", icon: Users },
-  { id: "historical", label: "Historical", icon: MapPin },
-  { id: "luxury", label: "Luxury", icon: Sparkles },
-  { id: "road-trip", label: "Road Trip", icon: MapPin },
-  { id: "spiritual", label: "Spiritual", icon: Heart },
-  { id: "wellness", label: "Wellness", icon: Dumbbell },
-  { id: "wildlife", label: "Wildlife", icon: Trees },
+  { id: "popular", label: "Popular", icon: "/assets/icons/popular.svg" },
+  { id: "adventure", label: "Adventure", icon: "/assets/icons/adventure.svg" },
+  { id: "art", label: "Art", icon: "/assets/icons/art.svg" },
+  { id: "budget", label: "Budget", icon: "/assets/icons/budget.svg" },
+  { id: "cultural", label: "Cultural", icon: "/assets/icons/cultural.svg" },
+  { id: "culinary", label: "Culinary", icon: "/assets/icons/culinary.svg" },
+  { id: "eco-tourism", label: "Eco-Tourism", icon: "/assets/icons/eco-tourism.svg" },
+  { id: "family", label: "Family", icon: "/assets/icons/family.svg" },
+  { id: "historical", label: "Historical", icon: "/assets/icons/historical.svg" },
+  { id: "luxury", label: "Luxury", icon: "/assets/icons/luxury.svg" },
+  { id: "road-trip", label: "Road Trip", icon: "/assets/icons/road-trip.svg" },
+  { id: "spiritual", label: "Spiritual", icon: "/assets/icons/spiritual.svg" },
+  { id: "wellness", label: "Wellness", icon: "/assets/icons/wellness.svg" },
+  { id: "wildlife", label: "Wildlife", icon: "/assets/icons/wildlife.svg" },
 ];
 
 interface CategoryFilterProps {
@@ -46,7 +31,6 @@ export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryF
     <div className="w-full max-w-7xl mx-auto px-4 py-6">
       <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
         {categories.map((category) => {
-          const IconComponent = category.icon;
           const isActive = selectedCategory === category.id;
           
           return (
@@ -63,7 +47,13 @@ export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryF
                 }
               `}
             >
-              <IconComponent className="w-4 h-4" />
+              <Image
+                src={category.icon}
+                alt={`${category.label} icon`}
+                width={16}
+                height={16}
+                className={`w-4 h-4 ${isActive ? 'brightness-0 invert' : ''}`}
+              />
               {category.label}
             </Button>
           );
