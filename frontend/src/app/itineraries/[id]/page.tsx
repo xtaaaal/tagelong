@@ -46,7 +46,7 @@ export default async function ItineraryDetailPage({ params }: ItineraryDetailPag
   const location = [city, region, country].filter(Boolean).join(", ");
   const imageUrl = mainPicture?.url 
     ? `${process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337'}${mainPicture.url}`
-    : null; // Let SafeImage handle fallback
+    : undefined; // Let SafeImage handle fallback
   
   const priceDisplay = isFree ? "FREE" : price ? `${currency} ${price}` : "Contact for pricing";
 
