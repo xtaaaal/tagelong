@@ -1,18 +1,17 @@
 export default ({ env }) => ({
-  providers: {
-    // Cloudinary provider for production file uploads
-    cloudinary: {
-      use: '@strapi/provider-upload-cloudinary',
-      options: {
+  upload: {
+    config: {
+      provider: 'cloudinary',
+      providerOptions: {
         cloud_name: env('CLOUDINARY_NAME'),
         api_key: env('CLOUDINARY_KEY'),
         api_secret: env('CLOUDINARY_SECRET'),
       },
+      actionOptions: {
+        upload: {},
+        uploadStream: {},
+        delete: {},
+      },
     },
-  },
-  // Security settings for production
-  settings: {
-    sizeLimit: 10 * 1024 * 1024, // 10MB
-    responsiveDimensions: true,
   },
 });
