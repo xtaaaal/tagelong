@@ -1,25 +1,50 @@
-export default [
+export default ({ env }) => [
   'strapi::logger',
   'strapi::errors',
-  'strapi::security',
-  'strapi::cors',
-  'strapi::poweredBy',
-  'strapi::query',
-  'strapi::body',
-  'strapi::session',
-  'strapi::favicon',
-  'strapi::public',
+  {
+    name: 'strapi::security',
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          'connect-src': ["'self'", 'https:'],
+          'img-src': [
+            "'self'",
+            'data:',
+            'blob:',
+            'market-assets.strapi.io',
+            'res.cloudinary.com', // Allow Cloudinary images
+          ],
+          'media-src': [
+            "'self'",
+            'data:',
+            'blob:',
+            'market-assets.strapi.io',
+            'res.cloudinary.com', // Allow Cloudinary media
+          ],
+          upgradeInsecureRequests: null,
+        },
+      },
+    },
+  },
   {
     name: 'strapi::cors',
     config: {
       enabled: true,
       headers: '*',
       origin: [
-        'https://yourdomain.com',
-        'https://www.yourdomain.com',
+        'https://tagelong.com',
+        'https://www.tagelong.com',
+        'https://tagelong.vercel.app',
         /\.vercel\.app$/,
-        ...(process.env.NODE_ENV === 'development' ? ['http://localhost:3000'] : []),
+        ...(env('NODE_ENV') === 'development' ? ['http://localhost:3000'] : []),
       ],
     },
   },
+  'strapi::poweredBy',
+  'strapi::query',
+  'strapi::body',
+  'strapi::session',
+  'strapi::favicon',
+  'strapi::public',
 ];
