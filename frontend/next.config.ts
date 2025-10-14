@@ -28,6 +28,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "tagelong.onrender.com", // Render backend domain
+        pathname: "/uploads/**/*",
+      },
+      {
+        protocol: "https",
         hostname: "res.cloudinary.com", // Cloudinary CDN
         pathname: "/**/*",
       }
