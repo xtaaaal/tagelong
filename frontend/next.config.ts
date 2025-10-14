@@ -33,6 +33,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "api.tagelong.com", // Custom API domain
+        pathname: "/uploads/**/*",
+      },
+      {
+        protocol: "https",
         hostname: "res.cloudinary.com", // Cloudinary CDN
         pathname: "/**/*",
       }
