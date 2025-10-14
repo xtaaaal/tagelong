@@ -63,10 +63,10 @@ function ItineraryCard({ documentId, title, country, city, mainPicture, price, c
 }
 
 interface SearchParamsProps {
-  searchParams?: {
+  searchParams: Promise<{
     page?: string;
     query?: string;
-  };
+  }>;
 }
 
 export default async function ItinerariesRoute({ searchParams }: SearchParamsProps) {
