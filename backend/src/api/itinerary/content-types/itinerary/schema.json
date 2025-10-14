@@ -43,15 +43,22 @@
     "tags": {
       "type": "enumeration",
       "required": false,
+      "multiple": true,
       "enum": [
+        "Popular",
         "Adventure",
+        "Art",
+        "Budget",
         "Cultural",
-        "Food",
-        "Nature",
-        "Urban",
-        "Beach",
-        "Mountain",
-        "Historical"
+        "Culinary",
+        "Eco-Tourism",
+        "Family",
+        "Historical",
+        "Luxury",
+        "Road Trip",
+        "Spiritual",
+        "Wellness",
+        "Wildlife"
       ]
     },
     "price": {

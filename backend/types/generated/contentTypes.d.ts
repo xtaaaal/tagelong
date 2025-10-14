@@ -485,14 +485,20 @@ export interface ApiItineraryItinerary extends Struct.CollectionTypeSchema {
     region: Schema.Attribute.String;
     tags: Schema.Attribute.Enumeration<
       [
+        'Popular',
         'Adventure',
+        'Art',
+        'Budget',
         'Cultural',
-        'Food',
-        'Nature',
-        'Urban',
-        'Beach',
-        'Mountain',
+        'Culinary',
+        'Eco-Tourism',
+        'Family',
         'Historical',
+        'Luxury',
+        'Road Trip',
+        'Spiritual',
+        'Wellness',
+        'Wildlife',
       ]
     >;
     title: Schema.Attribute.String &
