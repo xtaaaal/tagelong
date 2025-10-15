@@ -37,6 +37,8 @@ export default ({ env }) => [
         'https://www.tagelong.com',
         'https://tagelong.vercel.app',
         /\.vercel\.app$/,
+        'http://localhost:3000', // Allow localhost for development/testing
+        'http://localhost:3001', // Allow alternative localhost port
         ...(env('NODE_ENV') === 'development' ? ['http://localhost:3000'] : []),
       ],
     },
