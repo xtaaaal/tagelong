@@ -142,7 +142,7 @@ export async function getItineraries(queryString: string, currentPage: number) {
           }
         }
       },
-      days: {
+      Day: {
         populate: {
           picture: true
         }
@@ -171,7 +171,7 @@ export async function getItineraryById(itineraryId: string) {
           }
         }
       },
-      days: {
+      Day: {
         populate: {
           picture: true
         }
