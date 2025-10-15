@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { SafeImage } from "@/components/custom/safe-image";
+import { Tag } from "@/data/services/tag-service";
 
 interface ItineraryCardProps {
   itinerary: {
@@ -10,7 +11,7 @@ interface ItineraryCardProps {
     country: string;
     region?: string;
     city?: string;
-    tags?: string;
+    tags?: Tag[] | string; // Support both new Tag objects and legacy string
     price?: number;
     currency?: string;
     isFree: boolean;
@@ -75,15 +76,28 @@ export function ItineraryCard({ itinerary }: ItineraryCardProps) {
           {/* Tags overlay */}
           {tags && (
             <div className="absolute top-3 left-3 flex flex-wrap gap-1">
-              {tags.split(',').slice(0, 3).map((tag, index) => (
-                <Badge
-                  key={index}
-                  variant="secondary"
-                  className="bg-white/20 text-white border-0 text-xs px-2 py-1 backdrop-blur-sm"
-                >
-                  {tag.trim()}
-                </Badge>
-              ))}
+              {(() => {
+                // Handle both new Tag objects and legacy string format
+                let tagList: string[] = [];
+                
+                if (Array.isArray(tags)) {
+                  // New format: Tag objects
+                  tagList = tags.slice(0, 3).map(tag => tag.name);
+                } else if (typeof tags === 'string') {
+                  // Legacy format: comma-separated string
+                  tagList = tags.split(',').slice(0, 3).map(tag => tag.trim());
+                }
+                
+                return tagList.map((tagName, index) => (
+                  <Badge
+                    key={index}
+                    variant="secondary"
+                    className="bg-white/20 text-white border-0 text-xs px-2 py-1 backdrop-blur-sm"
+                  >
+                    {tagName}
+                  </Badge>
+                ));
+              })()}
             </div>
           )}
           

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { ItineraryCard, ItineraryCardSkeleton } from "./itinerary-card";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
+import { Tag } from "@/data/services/tag-service";
 
 interface PopularItinerariesProps {
   itineraries: any[];
@@ -25,16 +26,16 @@ export function PopularItineraries({
   
   // Filter itineraries based on category and search filters
   const filteredItineraries = itineraries.filter((itinerary) => {
-    // Category filter
+    // Category filter - now works with tag objects
     if (category !== "popular") {
-      const itineraryTag = itinerary.tags?.toLowerCase();
-      if (category === "adventure" && itineraryTag !== "adventure") return false;
-      if (category === "cultural" && itineraryTag !== "cultural") return false;
-      if (category === "culinary" && itineraryTag !== "food") return false;
-      if (category === "eco-tourism" && itineraryTag !== "nature") return false;
-      if (category === "historical" && itineraryTag !== "historical") return false;
-      if (category === "wellness" && itineraryTag !== "beach") return false;
-      // Add more category mappings as needed
+      const itineraryTags = itinerary.tags || [];
+      
+      // Check if any of the itinerary's tags match the selected category
+      const hasMatchingTag = itineraryTags.some((tag: Tag) => 
+        tag.slug === category
+      );
+      
+      if (!hasMatchingTag) return false;
     }
 
     // Search filters
@@ -51,8 +52,14 @@ export function PopularItineraries({
 
     if (searchFilters?.category && searchFilters.category !== 'any') {
       const selectedCategory = searchFilters.category.toLowerCase();
-      const itineraryTag = itinerary.tags?.toLowerCase();
-      if (itineraryTag !== selectedCategory) return false;
+      const itineraryTags = itinerary.tags || [];
+      
+      // Check if any tag matches the selected category
+      const hasMatchingTag = itineraryTags.some((tag: Tag) => 
+        tag.slug === selectedCategory
+      );
+      
+      if (!hasMatchingTag) return false;
     }
 
     return true;

@@ -134,6 +134,14 @@ export async function getItineraries(queryString: string, currentPage: number) {
     },
     populate: {
       mainPicture: true,
+      tags: {
+        fields: ["name", "slug", "description"],
+        populate: {
+          icon: {
+            fields: ["url", "alternativeText"]
+          }
+        }
+      },
       days: {
         populate: {
           picture: true
@@ -152,7 +160,26 @@ export async function getItineraries(queryString: string, currentPage: number) {
 }
 
 export async function getItineraryById(itineraryId: string) {
-  return fetchPublicData(`${baseUrl}/api/itineraries/${itineraryId}?populate=*`);
+  const query = qs.stringify({
+    populate: {
+      mainPicture: true,
+      tags: {
+        fields: ["name", "slug", "description"],
+        populate: {
+          icon: {
+            fields: ["url", "alternativeText"]
+          }
+        }
+      },
+      days: {
+        populate: {
+          picture: true
+        }
+      }
+    }
+  });
+  
+  return fetchPublicData(`${baseUrl}/api/itineraries/${itineraryId}?${query}`);
 }
 
 export async function getPopularItineraries(limit = 12) {
@@ -163,6 +190,49 @@ export async function getPopularItineraries(limit = 12) {
     populate: {
       mainPicture: {
         fields: ["url", "alternativeText"]
+      },
+      tags: {
+        fields: ["name", "slug", "description"],
+        populate: {
+          icon: {
+            fields: ["url", "alternativeText"]
+          }
+        }
+      }
+    },
+    pagination: {
+      pageSize: limit,
+      page: 1
+    }
+  });
+  
+  const url = new URL("/api/itineraries", baseUrl);
+  url.search = query;
+  
+  return await fetchPublicData(url.href);
+}
+
+export async function getItinerariesByTag(tagSlug: string, limit = 12) {
+  const query = qs.stringify({
+    sort: ["createdAt:desc"],
+    filters: {
+      tags: {
+        slug: {
+          $eq: tagSlug
+        }
+      }
+    },
+    populate: {
+      mainPicture: {
+        fields: ["url", "alternativeText"]
+      },
+      tags: {
+        fields: ["name", "slug", "description"],
+        populate: {
+          icon: {
+            fields: ["url", "alternativeText"]
+          }
+        }
       }
     },
     pagination: {
