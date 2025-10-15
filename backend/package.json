@@ -14,7 +14,9 @@
     "export:data": "node scripts/data-migrator.js --export",
     "import:data": "node scripts/data-migrator.js --import",
     "seed:tags": "node scripts/seed-tags.js --seed",
-    "list:tags": "node scripts/seed-tags.js --list"
+    "list:tags": "node scripts/seed-tags.js --list",
+    "tag:list": "node scripts/tag-manager.js list",
+    "tag:reorder": "node scripts/tag-manager.js reorder"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "^5.17.0",

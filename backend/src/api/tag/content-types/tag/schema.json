@@ -38,6 +38,12 @@
       "type": "text",
       "required": false
     },
+    "order": {
+      "type": "integer",
+      "required": false,
+      "default": 0,
+      "min": 0
+    },
     "itineraries": {
       "type": "relation",
       "relation": "manyToMany",

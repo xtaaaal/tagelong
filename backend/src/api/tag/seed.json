@@ -2,71 +2,85 @@
   {
     "name": "Popular",
     "slug": "popular",
-    "description": "Most popular and trending destinations"
+    "description": "Most popular and trending destinations",
+    "order": 1
   },
   {
     "name": "Adventure",
     "slug": "adventure",
-    "description": "Thrilling and adventurous experiences"
-  },
-  {
-    "name": "Art",
-    "slug": "art",
-    "description": "Art galleries, museums, and cultural sites"
-  },
-  {
-    "name": "Budget",
-    "slug": "budget",
-    "description": "Affordable travel options"
+    "description": "Thrilling and adventurous experiences",
+    "order": 2
   },
   {
     "name": "Cultural",
     "slug": "cultural",
-    "description": "Cultural experiences and heritage sites"
+    "description": "Cultural experiences and heritage sites",
+    "order": 3
   },
   {
     "name": "Culinary",
     "slug": "culinary",
-    "description": "Food and dining experiences"
+    "description": "Food and dining experiences",
+    "order": 4
   },
   {
-    "name": "Eco-Tourism",
-    "slug": "eco-tourism",
-    "description": "Sustainable and eco-friendly travel"
-  },
-  {
-    "name": "Family",
-    "slug": "family",
-    "description": "Family-friendly destinations and activities"
+    "name": "Art",
+    "slug": "art",
+    "description": "Art galleries, museums, and cultural sites",
+    "order": 5
   },
   {
     "name": "Historical",
     "slug": "historical",
-    "description": "Historical sites and landmarks"
-  },
-  {
-    "name": "Luxury",
-    "slug": "luxury",
-    "description": "Premium and luxury travel experiences"
-  },
-  {
-    "name": "Road Trip",
-    "slug": "road-trip",
-    "description": "Self-drive and road trip itineraries"
-  },
-  {
-    "name": "Spiritual",
-    "slug": "spiritual",
-    "description": "Spiritual and religious destinations"
+    "description": "Historical sites and landmarks",
+    "order": 6
   },
   {
     "name": "Wellness",
     "slug": "wellness",
-    "description": "Health, wellness, and relaxation"
+    "description": "Health, wellness, and relaxation",
+    "order": 7
+  },
+  {
+    "name": "Family",
+    "slug": "family",
+    "description": "Family-friendly destinations and activities",
+    "order": 8
+  },
+  {
+    "name": "Budget",
+    "slug": "budget",
+    "description": "Affordable travel options",
+    "order": 9
+  },
+  {
+    "name": "Luxury",
+    "slug": "luxury",
+    "description": "Premium and luxury travel experiences",
+    "order": 10
+  },
+  {
+    "name": "Eco-Tourism",
+    "slug": "eco-tourism",
+    "description": "Sustainable and eco-friendly travel",
+    "order": 11
   },
   {
     "name": "Wildlife",
     "slug": "wildlife",
-    "description": "Wildlife and nature experiences"
+    "description": "Wildlife and nature experiences",
+    "order": 12
+  },
+  {
+    "name": "Road Trip",
+    "slug": "road-trip",
+    "description": "Self-drive and road trip itineraries",
+    "order": 13
+  },
+  {
+    "name": "Spiritual",
+    "slug": "spiritual",
+    "description": "Spiritual and religious destinations",
+    "order": 14
   }
 ]

@@ -6,6 +6,7 @@ export interface Tag {
   name: string;
   slug: string;
   description?: string;
+  order?: number;
   icon?: {
     url: string;
     alternativeText?: string;
@@ -36,7 +37,6 @@ export async function getTags(): Promise<Tag[]> {
     const url = new URL('/api/tags', baseUrl);
     
     // Add query parameters for better performance
-    url.searchParams.set('sort', 'name:asc');
     url.searchParams.set('pagination[pageSize]', '100'); // Get all tags
     
     const response = await fetch(url.href, {
@@ -53,7 +53,20 @@ export async function getTags(): Promise<Tag[]> {
     }
 
     const data: TagsResponse = await response.json();
-    return data.data || [];
+    const tags = data.data || [];
+    
+    // Sort tags by order field, then by name as fallback
+    return tags.sort((a, b) => {
+      const orderA = a.order ?? 999; // Default to end if no order
+      const orderB = b.order ?? 999;
+      
+      if (orderA !== orderB) {
+        return orderA - orderB;
+      }
+      
+      // If order is the same, sort by name
+      return a.name.localeCompare(b.name);
+    });
   } catch (error) {
     console.error('Error fetching tags:', error);
     // Return fallback categories if API fails
@@ -71,7 +84,6 @@ export async function getTagsWithIcons(): Promise<Tag[]> {
     
     // Add populate parameter to include icon data
     url.searchParams.set('populate', 'icon');
-    url.searchParams.set('sort', 'name:asc');
     url.searchParams.set('pagination[pageSize]', '100');
     
     const response = await fetch(url.href, {
@@ -87,7 +99,20 @@ export async function getTagsWithIcons(): Promise<Tag[]> {
     }
 
     const data: TagsResponse = await response.json();
-    return data.data || [];
+    const tags = data.data || [];
+    
+    // Sort tags by order field, then by name as fallback
+    return tags.sort((a, b) => {
+      const orderA = a.order ?? 999; // Default to end if no order
+      const orderB = b.order ?? 999;
+      
+      if (orderA !== orderB) {
+        return orderA - orderB;
+      }
+      
+      // If order is the same, sort by name
+      return a.name.localeCompare(b.name);
+    });
   } catch (error) {
     console.error('Error fetching tags with icons:', error);
     return getFallbackTags();
