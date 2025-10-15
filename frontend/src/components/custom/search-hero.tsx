@@ -91,13 +91,13 @@ export function SearchHero({ onSearch }: SearchHeroProps) {
   }
 
   return (
-      <div className="relative py-20 px-4" style={{background: 'linear-gradient(180deg, rgba(246, 158, 32, 0) 0%, rgba(246, 158, 32, 0.07) 100%)'}}>
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Hero Title */}
-          <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6">
-            Explore your <span className="text-brand-500">journey</span>
-          </h1>
-        
+    <div className="relative py-20 px-4" style={{background: 'linear-gradient(180deg, rgba(246, 158, 32, 0) 0%, rgba(246, 158, 32, 0.07) 100%)'}}>
+      <div className="max-w-4xl mx-auto text-center">
+        {/* Hero Title */}
+        <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6">
+          Explore your <span className="text-brand-500">journey</span>
+        </h1>
+      
         {/* Search Form */}
         <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
