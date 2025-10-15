@@ -87,7 +87,8 @@ class TagManager {
         }
 
         const tag = tags[0];
-        await this.updateTagOrder(tag.id, order);
+        // Use documentId instead of id for API calls
+        await this.updateTagOrder(tag.documentId, order);
         successCount++;
       } catch (error) {
         console.error(`❌ Failed to update tag "${tagSlug}":`, error.message);
