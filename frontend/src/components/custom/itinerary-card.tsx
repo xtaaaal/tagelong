@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { SafeImage } from "@/components/custom/safe-image";
 import { Tag } from "@/data/services/tag-service";
+import { getImageUrl } from "@/lib/utils";
 
 interface ItineraryCardProps {
   itinerary: {
@@ -42,9 +43,7 @@ export function ItineraryCard({ itinerary }: ItineraryCardProps) {
   const location = [city, region, country].filter(Boolean).join(", ");
 
   // Get image URL or use fallback
-  const imageUrl = mainPicture?.url 
-    ? `${process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337'}${mainPicture.url}`
-    : undefined; // Let SafeImage handle fallback
+  const imageUrl = getImageUrl(mainPicture?.url);
 
   const imageAlt = mainPicture?.alternativeText || `${title} - ${location}`;
 

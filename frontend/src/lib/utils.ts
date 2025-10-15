@@ -21,6 +21,18 @@ export function getStrapiMedia(url: string | null) {
   return `${getStrapiURL()}${url}`;
 }
 
+export function getImageUrl(imageUrl: string | null | undefined): string | undefined {
+  if (!imageUrl) return undefined;
+  
+  // If it's already a full URL (Cloudinary or external), use it as-is
+  if (imageUrl.startsWith('http')) {
+    return imageUrl;
+  }
+  
+  // If it's a relative path, prepend Strapi URL
+  return `${getStrapiURL()}${imageUrl}`;
+}
+
 export function extractYouTubeID(urlOrID: string): string | null {
   // Regular expression for YouTube ID format
   const regExpID = /^[a-zA-Z0-9_-]{11}$/;
