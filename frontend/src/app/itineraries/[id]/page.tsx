@@ -257,39 +257,7 @@ export default async function ItineraryDetailPage({ params }: ItineraryDetailPag
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 py-12">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <h3 className="font-bold text-lg mb-4">Tagelong</h3>
-              <p className="text-text-secondary text-sm mb-4">
-                Your travel companion for discovering amazing destinations around the world.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Resources</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="#" className="text-text-secondary hover:text-text-primary">Newsroom</Link></li>
-                <li><Link href="#" className="text-text-secondary hover:text-text-primary">Resources & tips for Planners</Link></li>
-                <li><Link href="#" className="text-text-secondary hover:text-text-primary">Language & Currency</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="#" className="text-text-secondary hover:text-text-primary">Terms</Link></li>
-                <li><Link href="#" className="text-text-secondary hover:text-text-primary">Privacy Policy</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-200 mt-8 pt-8 text-center">
-            <p className="text-sm text-text-muted">
-              © 2025 Tagelong. Design by HTBS.
-            </p>
-          </div>
-        </div>
-      </footer>
+     
     </main>
   );
 }
