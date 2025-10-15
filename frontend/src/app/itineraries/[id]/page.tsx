@@ -24,7 +24,7 @@ interface ItineraryDetailPageProps {
 export default async function ItineraryDetailPage({ params }: ItineraryDetailPageProps) {
   const { id } = await params;
   const itineraryResponse = await getItineraryById(id);
-  const itinerary = itineraryResponse?.data?.attributes;
+  const itinerary = itineraryResponse?.data;
 
   if (!itinerary) {
     notFound();
