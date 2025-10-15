@@ -24,7 +24,7 @@ interface ItineraryDetailPageProps {
 export default async function ItineraryDetailPage({ params }: ItineraryDetailPageProps) {
   const { id } = await params;
   const itineraryResponse = await getItineraryById(id);
-  const itinerary = itineraryResponse?.data;
+  const itinerary = itineraryResponse?.data?.attributes;
 
   if (!itinerary) {
     notFound();
@@ -79,10 +79,12 @@ export default async function ItineraryDetailPage({ params }: ItineraryDetailPag
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 text-white">
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-wrap items-center gap-2 mb-4">
-              {tags && (
-                <Badge variant="secondary" className="bg-white/20 text-white border-0">
-                  {tags}
-                </Badge>
+              {tags && Array.isArray(tags) && tags.length > 0 && (
+                tags.slice(0, 3).map((tag: any, index: number) => (
+                  <Badge key={index} variant="secondary" className="bg-white/20 text-white border-0">
+                    {tag.name}
+                  </Badge>
+                ))
               )}
               <div className="flex items-center gap-1 text-sm">
                 <Star className="w-4 h-4 text-yellow-400 fill-current" />
