@@ -5,12 +5,18 @@ const axios = require('axios');
 class ItineraryAPIImporter {
   constructor(baseURL = 'http://localhost:1337') {
     this.baseURL = baseURL;
+    this.apiToken = process.env.STRAPI_API_TOKEN;
+    this.headers = {
+      'Content-Type': 'application/json',
+      ...(this.apiToken ? { Authorization: `Bearer ${this.apiToken}` } : {})
+    };
     this.results = {
       success: 0,
       errors: 0,
       skipped: 0,
       details: []
     };
+    this.tagCache = new Map(); // Cache for tag lookups
   }
 
   async importFromCSV(csvFilePath) {
@@ -24,6 +30,9 @@ class ItineraryAPIImporter {
 
       // Check if Strapi is running
       await this.checkStrapiConnection();
+
+      // Load tag cache for relation handling
+      await this.loadTagCache();
 
       const data = await this.parseCSV(csvFilePath);
       console.log(`📋 Found ${data.length} records to import`);
@@ -63,7 +72,7 @@ class ItineraryAPIImporter {
 
   async checkStrapiConnection() {
     try {
-      const response = await axios.get(`${this.baseURL}/api/itineraries?pagination[limit]=1`);
+      const response = await axios.get(`${this.baseURL}/api/itineraries?pagination[limit]=1`, { headers: this.headers });
       console.log('✅ Connected to Strapi API');
     } catch (error) {
       if (error.code === 'ECONNREFUSED') {
@@ -72,6 +81,86 @@ class ItineraryAPIImporter {
       // If we get a 403 or other error, that's OK - it means Strapi is running
       console.log('✅ Strapi API is running');
     }
+  }
+
+  async loadTagCache() {
+    try {
+      console.log('🏷️  Loading tag cache...');
+      const response = await axios.get(`${this.baseURL}/api/tags`, { headers: this.headers });
+      const tags = response.data.data || [];
+      
+      this.tagCache.clear();
+      tags.forEach(tag => {
+        this.tagCache.set(tag.attributes.name.toLowerCase(), tag.id);
+        this.tagCache.set(tag.attributes.slug, tag.id);
+      });
+      
+      console.log(`✅ Loaded ${tags.length} tags into cache`);
+    } catch (error) {
+      console.warn('⚠️  Could not load tag cache:', error.message);
+      console.warn('   Tags will be created on-demand if needed');
+    }
+  }
+
+  async getOrCreateTag(tagName) {
+    if (!tagName || tagName.trim() === '') return null;
+    
+    const normalizedName = tagName.trim();
+    const cacheKey = normalizedName.toLowerCase();
+    
+    // Check cache first
+    if (this.tagCache.has(cacheKey)) {
+      return this.tagCache.get(cacheKey);
+    }
+    
+    try {
+      // Try to find existing tag
+      const response = await axios.get(`${this.baseURL}/api/tags?filters[name][$eq]=${encodeURIComponent(normalizedName)}`, {
+        headers: this.headers
+      });
+      
+      if (response.data.data && response.data.data.length > 0) {
+        const tag = response.data.data[0];
+        this.tagCache.set(cacheKey, tag.id);
+        this.tagCache.set(tag.attributes.slug, tag.id);
+        return tag.id;
+      }
+      
+      // Create new tag if not found
+      console.log(`🏷️  Creating new tag: ${normalizedName}`);
+      const createResponse = await axios.post(`${this.baseURL}/api/tags`, {
+        data: {
+          name: normalizedName,
+          slug: normalizedName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+        }
+      }, { headers: this.headers });
+      
+      const newTag = createResponse.data.data;
+      this.tagCache.set(cacheKey, newTag.id);
+      this.tagCache.set(newTag.attributes.slug, newTag.id);
+      
+      return newTag.id;
+    } catch (error) {
+      console.error(`❌ Failed to get/create tag "${normalizedName}":`, error.message);
+      return null;
+    }
+  }
+
+  async parseTags(tagsString) {
+    if (!tagsString || tagsString.trim() === '') return [];
+    
+    // Split by comma and clean up
+    const tagNames = tagsString.split(',').map(name => name.trim()).filter(name => name);
+    const tagIds = [];
+    
+    for (const tagName of tagNames) {
+      const tagId = await this.getOrCreateTag(tagName);
+      if (tagId) {
+        tagIds.push(tagId);
+      }
+    }
+    
+    return tagIds;
   }
 
   async parseCSV(filePath) {
@@ -98,7 +187,8 @@ class ItineraryAPIImporter {
         params: {
           'filters[title][$eq]': row.title.trim(),
           'pagination[limit]': 1
-        }
+        },
+        headers: this.headers
       });
 
       if (existingResponse.data.data && existingResponse.data.data.length > 0) {
@@ -107,7 +197,7 @@ class ItineraryAPIImporter {
         console.log(`🔄 Updating existing itinerary "${row.title}" (ID: ${existingId})...`);
         
         await axios.delete(`${this.baseURL}/api/itineraries/${existingId}`, {
-          headers: { Authorization: `Bearer ${this.apiToken}` }
+          headers: this.headers
         });
         console.log(`🗑️  Deleted existing entry to update with new Day format`);
       }
@@ -136,7 +226,7 @@ class ItineraryAPIImporter {
       country: row.country.trim(),
       region: row.region?.trim() || null,
       city: row.city?.trim() || null,
-      tags: this.parseEnumValue(row.tags, ['Adventure', 'Cultural', 'Food', 'Nature', 'Urban', 'Beach', 'Mountain', 'Historical']),
+      tags: await this.parseTags(row.tags),
       price: this.parseDecimal(row.price),
       currency: row.currency?.trim() || 'USD',
       isFree: this.parseBoolean(row.isFree),
@@ -149,11 +239,7 @@ class ItineraryAPIImporter {
     // Create the itinerary using Strapi REST API
     const response = await axios.post(`${this.baseURL}/api/itineraries`, {
       data: itineraryData
-    }, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
+    }, { headers: this.headers });
 
     return response.data;
   }

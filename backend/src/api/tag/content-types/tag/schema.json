@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tags",
+  "info": {
+    "singularName": "tag",
+    "pluralName": "tags",
+    "displayName": "Tag",
+    "description": "Travel itinerary tags"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "settings": {
+    "mainField": "name"
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 100
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    },
+    "itineraries": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::itinerary.itinerary",
+      "inversedBy": "tags"
+    }
+  }
+}

@@ -41,25 +41,10 @@
       "required": false
     },
     "tags": {
-      "type": "enumeration",
-      "required": false,
-      "multiple": true,
-      "enum": [
-        "Popular",
-        "Adventure",
-        "Art",
-        "Budget",
-        "Cultural",
-        "Culinary",
-        "Eco-Tourism",
-        "Family",
-        "Historical",
-        "Luxury",
-        "Road Trip",
-        "Spiritual",
-        "Wellness",
-        "Wildlife"
-      ]
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "itineraries"
     },
     "price": {
       "type": "decimal",

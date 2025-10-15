@@ -12,7 +12,9 @@
     "import:csv": "node scripts/api-csv-importer.js",
     "import:example": "node scripts/api-csv-importer.js data/itinerary-example.csv",
     "export:data": "node scripts/data-migrator.js --export",
-    "import:data": "node scripts/data-migrator.js --import"
+    "import:data": "node scripts/data-migrator.js --import",
+    "seed:tags": "node scripts/seed-tags.js --seed",
+    "list:tags": "node scripts/seed-tags.js --list"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "^5.17.0",
