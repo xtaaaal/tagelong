@@ -6,7 +6,12 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getStrapiURL() {
-  return process.env.NEXT_PUBLIC_STRAPI_URL ?? "http://127.0.0.1:1337";
+  // In production, use the production API URL
+  if (process.env.NODE_ENV === 'production') {
+    return process.env.NEXT_PUBLIC_STRAPI_URL ?? "https://api.tagelong.com";
+  }
+  // In development, use localhost
+  return process.env.NEXT_PUBLIC_STRAPI_URL ?? "http://localhost:1337";
 }
 
 export function getStrapiMedia(url: string | null) {
