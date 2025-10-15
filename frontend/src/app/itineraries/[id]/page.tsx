@@ -4,7 +4,7 @@ import { SafeImage } from "@/components/custom/safe-image";
 import { Badge } from "@/components/ui/badge";
 import { getImageUrl } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { SearchHero } from "@/components/custom/search-hero";
+import { SearchHeroWrapper } from "@/components/custom/search-hero-wrapper";
 import { 
   MapPin, 
   Calendar, 
@@ -55,20 +55,10 @@ export default async function ItineraryDetailPage({ params }: ItineraryDetailPag
   
   const priceDisplay = isFree ? "FREE" : price ? `${currency} ${price}` : "Contact for pricing";
 
-  const handleSearch = (filters: any) => {
-    // Handle search functionality - redirect to homepage with filters
-    const searchParams = new URLSearchParams();
-    if (filters.destination) searchParams.set('query', filters.destination);
-    if (filters.category) searchParams.set('category', filters.category);
-    if (filters.duration) searchParams.set('duration', filters.duration);
-    
-    window.location.href = `/?${searchParams.toString()}`;
-  };
-
   return (
     <main className="min-h-screen bg-white">
       {/* Search Hero Section */}
-      <SearchHero onSearch={handleSearch} />
+      <SearchHeroWrapper />
 
       {/* Hero Image Section */}
       <div className="relative h-[500px] md:h-[600px] overflow-hidden">
