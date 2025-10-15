@@ -33,7 +33,11 @@ export function Logo({
           width={width}
           height={height}
           className="object-contain"
-          style={{ width: 'auto', height: 'auto' }}
+          style={{ 
+            width: `${width}px`, 
+            height: `${height}px`,
+            maxWidth: 'none'
+          }}
           priority
           // Fallback to text if image fails to load
           onError={(e) => {
