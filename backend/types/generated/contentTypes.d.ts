@@ -455,7 +455,6 @@ export interface ApiItineraryItinerary extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    currency: Schema.Attribute.String & Schema.Attribute.DefaultTo<'USD'>;
     Day: Schema.Attribute.Component<'itinerary.day', true>;
     fileUpload: Schema.Attribute.Media<'files'>;
     highlights: Schema.Attribute.Text &
@@ -484,6 +483,8 @@ export interface ApiItineraryItinerary extends Struct.CollectionTypeSchema {
       Schema.Attribute.DefaultTo<'draft'>;
     region: Schema.Attribute.String;
     tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
+    themeLayout: Schema.Attribute.Enumeration<['Daily Style', 'Free Style']> &
+      Schema.Attribute.DefaultTo<'Daily Style'>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{

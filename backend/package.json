@@ -16,7 +16,11 @@
     "seed:tags": "node scripts/seed-tags.js --seed",
     "list:tags": "node scripts/seed-tags.js --list",
     "tag:list": "node scripts/tag-manager.js list",
-    "tag:reorder": "node scripts/tag-manager.js reorder"
+    "tag:reorder": "node scripts/tag-manager.js reorder",
+    "backup:production": "node scripts/backup-production-data.js",
+    "migrate:production": "node scripts/migrate-production-data.js",
+    "deploy:production": "node scripts/deploy-to-production.js",
+    "verify:production": "node scripts/deploy-to-production.js --verify"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "^5.17.0",

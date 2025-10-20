@@ -49,12 +49,8 @@
     "price": {
       "type": "decimal",
       "required": false,
-      "min": 0
-    },
-    "currency": {
-      "type": "string",
-      "default": "USD",
-      "required": false
+      "min": 0,
+      "displayName": "Price (USD)"
     },
     "isFree": {
       "type": "boolean",
@@ -71,6 +67,16 @@
       "allowedTypes": [
         "files"
       ]
+    },
+    "themeLayout": {
+      "type": "enumeration",
+      "displayName": "Select Theme and Layout",
+      "enum": [
+        "Daily Style",
+        "Free Style"
+      ],
+      "required": false,
+      "default": "Daily Style"
     },
     "publishStatus": {
       "type": "enumeration",

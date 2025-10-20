@@ -10,11 +10,6 @@
     "mainField": "subtitle"
   },
   "attributes": {
-    "dayType": {
-      "type": "enumeration",
-      "enum": ["Arrival Day", "Departure Day", "Input Number", "Other Subtitle"],
-      "default": "Input Number"
-    },
     "dayNumber": {
       "type": "integer",
       "min": 1,
@@ -26,17 +21,24 @@
     },
     "picture": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": ["images"],
+      "maxFiles": 10
     },
-    "recommendation": {
-      "type": "text",
-      "maxLength": 1000
+    "content": {
+      "type": "richtext",
+      "required": false
     },
     "googleMapsLink": {
       "type": "string",
-      "required": false
+      "required": false,
+      "multiple": true
+    },
+    "youtubeLink": {
+      "type": "string",
+      "required": false,
+      "multiple": true
     },
     "showDistanceFromLastStop": {
       "type": "boolean",

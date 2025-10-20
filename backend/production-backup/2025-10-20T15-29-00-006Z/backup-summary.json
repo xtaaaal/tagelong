@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-10-20T15-29-00-006Z",
+  "source": "https://api.tagelong.com",
+  "backup": {
+    "itineraries": 1,
+    "tags": 15,
+    "users": 0
+  },
+  "schema_version": "pre-migration",
+  "notes": "Backup created before schema migration (currency removal, themeLayout addition, etc.)"
+}

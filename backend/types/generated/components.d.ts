@@ -33,6 +33,7 @@ export interface ItineraryDay extends Struct.ComponentSchema {
     displayName: 'Day';
   };
   attributes: {
+    content: Schema.Attribute.RichText;
     dayNumber: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {
@@ -40,23 +41,16 @@ export interface ItineraryDay extends Struct.ComponentSchema {
         },
         number
       >;
-    dayType: Schema.Attribute.Enumeration<
-      ['Arrival Day', 'Departure Day', 'Input Number', 'Other Subtitle']
-    > &
-      Schema.Attribute.DefaultTo<'Input Number'>;
     fileUpload: Schema.Attribute.Media<'files'>;
     googleMapsLink: Schema.Attribute.String;
-    picture: Schema.Attribute.Media<'images'>;
-    recommendation: Schema.Attribute.Text &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 1000;
-      }>;
+    picture: Schema.Attribute.Media<'images', true>;
     showDistanceFromLastStop: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
     subtitle: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
+    youtubeLink: Schema.Attribute.String;
   };
 }
 

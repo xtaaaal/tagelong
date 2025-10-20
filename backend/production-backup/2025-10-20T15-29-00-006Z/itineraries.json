@@ -1,0 +1,427 @@
+{
+  "data": [
+    {
+      "id": 8,
+      "documentId": "tteb9aa39frnfe22rxewwzzh",
+      "title": "Sun, Wine & Culture: 13 Days 12 Nights in Spain and Portugal",
+      "country": "Spain, Portugal",
+      "region": null,
+      "city": "Barcelona, Seville, Malaga, Porto",
+      "price": null,
+      "currency": "USD",
+      "isFree": true,
+      "highlights": "Experience the best of the Iberian Peninsula in this 13-day, 12-night journey through Spain and Portugal. From the architectural wonders of Gaudí in Barcelona to the riverfront charm of Porto, this itinerary blends culture, history, and unforgettable cuisine.\nKick off with Gaudí’s masterpieces and cava tastings in Barcelona, then fly south to Seville for flamenco vibes, sunset views at Setas de Sevilla, and tapas-filled nights. In Malaga, explore hidden gems like Castillo de Colomares, taste local wines, and take on the thrilling Caminito del Rey hike.\nThe adventure ends in Porto, where riverside strolls, port wine cellars, and vibrant food scenes offer the perfect finale. With a mix of iconic landmarks, local favorites, and scenic day trips, this itinerary is packed with authentic, enriching experiences—perfect for travelers who want it all.",
+      "publishStatus": "public",
+      "createdAt": "2025-10-14T06:26:59.610Z",
+      "updatedAt": "2025-10-20T09:27:28.654Z",
+      "publishedAt": "2025-10-20T09:27:29.126Z",
+      "mainPicture": {
+        "id": 20,
+        "documentId": "xf7mag4fx13ph1di14wx7k0l",
+        "name": "IMG_20150718_174620.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 3264,
+        "height": 2448,
+        "formats": {
+          "large": {
+            "ext": ".jpg",
+            "url": "https://res.cloudinary.com/dgwgood9b/image/upload/v1760950670/large_IMG_20150718_174620_58c0f572c3.jpg",
+            "hash": "large_IMG_20150718_174620_58c0f572c3",
+            "mime": "image/jpeg",
+            "name": "large_IMG_20150718_174620.jpg",
+            "path": null,
+            "size": 154.16,
+            "width": 1000,
+            "height": 750,
+            "sizeInBytes": 154161,
+            "provider_metadata": {
+              "public_id": "large_IMG_20150718_174620_58c0f572c3",
+              "resource_type": "image"
+            }
+          },
+          "small": {
+            "ext": ".jpg",
+            "url": "https://res.cloudinary.com/dgwgood9b/image/upload/v1760950670/small_IMG_20150718_174620_58c0f572c3.jpg",
+            "hash": "small_IMG_20150718_174620_58c0f572c3",
+            "mime": "image/jpeg",
+            "name": "small_IMG_20150718_174620.jpg",
+            "path": null,
+            "size": 41.32,
+            "width": 500,
+            "height": 375,
+            "sizeInBytes": 41324,
+            "provider_metadata": {
+              "public_id": "small_IMG_20150718_174620_58c0f572c3",
+              "resource_type": "image"
+            }
+          },
+          "medium": {
+            "ext": ".jpg",
+            "url": "https://res.cloudinary.com/dgwgood9b/image/upload/v1760950670/medium_IMG_20150718_174620_58c0f572c3.jpg",
+            "hash": "medium_IMG_20150718_174620_58c0f572c3",
+            "mime": "image/jpeg",
+            "name": "medium_IMG_20150718_174620.jpg",
+            "path": null,
+            "size": 90.56,
+            "width": 750,
+            "height": 563,
+            "sizeInBytes": 90559,
+            "provider_metadata": {
+              "public_id": "medium_IMG_20150718_174620_58c0f572c3",
+              "resource_type": "image"
+            }
+          },
+          "thumbnail": {
+            "ext": ".jpg",
+            "url": "https://res.cloudinary.com/dgwgood9b/image/upload/v1760950669/thumbnail_IMG_20150718_174620_58c0f572c3.jpg",
+            "hash": "thumbnail_IMG_20150718_174620_58c0f572c3",
+            "mime": "image/jpeg",
+            "name": "thumbnail_IMG_20150718_174620.jpg",
+            "path": null,
+            "size": 8.04,
+            "width": 208,
+            "height": 156,
+            "sizeInBytes": 8040,
+            "provider_metadata": {
+              "public_id": "thumbnail_IMG_20150718_174620_58c0f572c3",
+              "resource_type": "image"
+            }
+          }
+        },
+        "hash": "IMG_20150718_174620_58c0f572c3",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 1198.25,
+        "url": "https://res.cloudinary.com/dgwgood9b/image/upload/v1760950670/IMG_20150718_174620_58c0f572c3.jpg",
+        "previewUrl": null,
+        "provider": "cloudinary",
+        "provider_metadata": {
+          "public_id": "IMG_20150718_174620_58c0f572c3",
+          "resource_type": "image"
+        },
+        "createdAt": "2025-10-20T08:57:50.604Z",
+        "updatedAt": "2025-10-20T08:57:50.604Z",
+        "publishedAt": "2025-10-20T08:57:50.604Z"
+      },
+      "tags": [
+        {
+          "id": 15,
+          "documentId": "n7k8zxlhw419w3cjzjtfu93t",
+          "name": "Nature and Landscape",
+          "slug": "NatureandLandscape",
+          "description": null,
+          "createdAt": "2025-10-20T09:27:06.850Z",
+          "updatedAt": "2025-10-20T09:28:36.824Z",
+          "publishedAt": "2025-10-20T09:28:36.734Z",
+          "order": 0
+        },
+        {
+          "id": 5,
+          "documentId": "zwut7h6qgle7cszgwqhphtn4",
+          "name": "Cultural",
+          "slug": "cultural",
+          "description": "Cultural experiences and heritage sites",
+          "createdAt": "2025-10-15T08:10:00.307Z",
+          "updatedAt": "2025-10-15T08:52:21.996Z",
+          "publishedAt": "2025-10-15T08:52:21.993Z",
+          "order": 3
+        },
+        {
+          "id": 6,
+          "documentId": "ygd04wa2r0tx6zjbuvqqrc06",
+          "name": "Culinary",
+          "slug": "culinary",
+          "description": "Food and dining experiences",
+          "createdAt": "2025-10-15T08:10:00.521Z",
+          "updatedAt": "2025-10-15T08:52:22.448Z",
+          "publishedAt": "2025-10-15T08:52:22.443Z",
+          "order": 4
+        },
+        {
+          "id": 9,
+          "documentId": "d3det2i0tcz7q0s8xs5bf3fr",
+          "name": "Historical",
+          "slug": "historical",
+          "description": "Historical sites and landmarks",
+          "createdAt": "2025-10-15T08:10:01.330Z",
+          "updatedAt": "2025-10-15T08:52:23.334Z",
+          "publishedAt": "2025-10-15T08:52:23.329Z",
+          "order": 6
+        }
+      ],
+      "fileUpload": null,
+      "Day": [
+        {
+          "id": 204,
+          "dayType": "Input Number",
+          "dayNumber": 1,
+          "subtitle": "[Day 1] Visit Sagrada Familia",
+          "recommendation": "Sagrada Familia is Gaudí’s iconic, still-unfinished basilica and a must-see in Barcelona. Blending Gothic and Art Nouveau styles, its dramatic facades and stained-glass interior showcase Gaudí’s genius and spiritual vision.\nTo make the most of your visit, book tickets in advance, ideally for a morning slot when light shines beautifully through the windows. Consider adding an audio guide or guided tour to understand the symbolism. The tower visit offers great city views (elevator up, stairs down). Dress modestly, as it’s an active place of worship, and don’t miss the museum beneath the basilica. The site is easily reachable via Metro Lines 2 or 5—just exit at Sagrada Familia station.",
+          "googleMapsLink": "https://maps.app.goo.gl/M5TQRCxKLAczN7N67",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 205,
+          "dayType": "Input Number",
+          "dayNumber": 1,
+          "subtitle": "[Day 1] Have a meal at Tapa Tapa",
+          "recommendation": "Tapa Tapa is a casual tapas chain in Barcelona offering a wide variety of dishes and convenient locations across the city. It’s a great choice for your arrival day when you might be tired from the flight—you won’t need to wait in long lines or search for the best spots. The food is consistently decent, with popular options like mussels, mini burgers, and pimientos. Though not gourmet, it’s reliable, quick, and perfect for sampling a range of flavors without hassle. Ideal for an easy, satisfying first meal in Barcelona.",
+          "googleMapsLink": "https://maps.app.goo.gl/BssBfsY1M9jL229X9",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 206,
+          "dayType": "Input Number",
+          "dayNumber": 2,
+          "subtitle": "[Day 2] Freixenet or Cava Tour",
+          "recommendation": "Take a train (from Barcelona-Plaça de Catalunya to Sant Sadurní d'Anoia) via Renfe (around 45 mins) for a Freixenet Cava Tour—an excellent way to experience Spain’s famous sparkling wine. \n\nFreixenet is one of Spain’s most iconic cava producers, known for its traditional sparkling wines and century-old heritage. The tour offers a unique glimpse into the underground cellars, production process, and includes tastings. It’s a fun, educational way to explore Catalan culture just under an hour from Barcelona.\n\nTickets can be bought on-site but I would suggest making a reservation ahead.",
+          "googleMapsLink": "https://maps.app.goo.gl/2R764Pf2kRehCFiv7",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 207,
+          "dayType": "Input Number",
+          "dayNumber": 2,
+          "subtitle": "[Day 2] Dinner at Cervecería Catalana",
+          "recommendation": "Cervecería Catalana is one of Barcelona’s most vibrant tapas spots—expect a wait since reservations aren’t accepted. Diners love the “fresh and tasty” tapas, wide selection, and lively bar scene. For a smoother visit, arrive early or grab a spot at the bar.",
+          "googleMapsLink": "https://maps.app.goo.gl/bZ5Q3FLgG6ioJbC59",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 208,
+          "dayType": "Input Number",
+          "dayNumber": 3,
+          "subtitle": "[Day 3] Local Flavors at Barcelona’s Markets",
+          "recommendation": "Spend your day browsing vibrant local markets like Mercado de La Boqueria or Mercat de Sant Antoni, soaking in the lively atmosphere, colorful displays, and rich aromas. These markets are perfect for sampling local produce, jamón, cheeses, and fresh juices.",
+          "googleMapsLink": "https://maps.app.goo.gl/bcHg9T1Sj8mDDf4S9",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 209,
+          "dayType": "Input Number",
+          "dayNumber": 3,
+          "subtitle": "[Day 3] Stop by Granja M. Viader in the afternoon",
+          "recommendation": "Granja M. Viader, a historic café since 1870, is famed for its rich hot chocolate, churros, and crema catalana, served in a charming vintage setting. Icons like Picasso once visited. Reviewers rave about the “best hot dark chocolate” and unforgettable churros, calling it “truly special”.",
+          "googleMapsLink": null,
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 210,
+          "dayType": "Input Number",
+          "dayNumber": 3,
+          "subtitle": "[Day 3] Try Tapas 24 for dinner",
+          "recommendation": "Tapas 24 is a lively basement tapas bar by Michelin-starred chef Carles Abellán near Passeig de Gràcia. Widely praised for creative dishes—like truffle bikinis, bombas, and croquetas—and fast, friendly service, it’s a hotspot for both locals and tourists . Expect a queue—arrive early or enjoy a bar seat.",
+          "googleMapsLink": null,
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 211,
+          "dayType": "Input Number",
+          "dayNumber": 4,
+          "subtitle": "[Day 4] Arrive in Seville & Immerse in Andalusian Charm",
+          "recommendation": "Fly to Seville in the morning and check into your city-centre hotel. Spend the afternoon wandering the picturesque Santa Cruz district, filled with historic charm and hidden courtyards. Especially the magnificent Royal Alcázar of Seville.",
+          "googleMapsLink": "https://maps.app.goo.gl/yziovE4HjBiewKiN7",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 212,
+          "dayType": "Input Number",
+          "dayNumber": 4,
+          "subtitle": "[Day 4] Dinner & Flamenco at Casa de la Memoria",
+          "recommendation": "End the evening with an authentic Andalusian experience at Casa de la Memoria Centro Cultural Flamenco. Enjoy dinner at their cozy on-site restaurant before attending a passionate flamenco performance in an intimate setting. Advance booking is highly recommended, as seats fill quickly.",
+          "googleMapsLink": "https://maps.app.goo.gl/akpewtxL8WDKZyRY9",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 213,
+          "dayType": "Input Number",
+          "dayNumber": 5,
+          "subtitle": "[Day 5] Discover the Vibrant Triana Neighborhood",
+          "recommendation": "Cross the iconic Puente de Triana into the historic Triana, the soulful origin of Seville’s flamenco and a hub of ceramic craftsmanship. Meander its colorful streets among artisan pottery shops on Calle San Jacinto and Calle Betis, and don’t miss the traditional Triana Market—built atop the 15th-century Castle of San Jorge—for fresh tapas amid history. Stop by Iglesia de Santa Ana or the Sailors’ Chapel for glimpses of Gothic-Mudéjar architecture and local devotion.",
+          "googleMapsLink": "https://maps.app.goo.gl/UVjT7SfG6mycHEBZ9",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 214,
+          "dayType": "Input Number",
+          "dayNumber": 5,
+          "subtitle": "[Day 5] Setas de Sevilla",
+          "recommendation": "Visit Setas de Sevilla (Metropol Parasol) in the late afternoon to catch the sunset from its elevated wooden terrace. You’ll experience panoramic city views—including the Giralda and cathedral—bathed in golden light, with the “blue hour” setting in shortly after. Ticket includes access to the museum, and for a small fee you’ll get a drink and stunning, atmospheric vistas . Elevator access makes the experience easy and accessible. Suggest to purchase a 16:30 ticket!",
+          "googleMapsLink": "https://maps.app.goo.gl/Sda1Ps6o3GvRKCZ8A",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 215,
+          "dayType": "Input Number",
+          "dayNumber": 5,
+          "subtitle": "[Day 5] Local Nightlife",
+          "recommendation": "As night falls, explore Seville’s buzzing nightlife, from traditional tapas bars to modern lounges. LATIENDA La Azotea Tapas is a great dinner option!",
+          "googleMapsLink": "https://maps.app.goo.gl/ipHTFJvctHVGwqeDA",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 216,
+          "dayType": "Input Number",
+          "dayNumber": 6,
+          "subtitle": "[Day 6] Bus to Malaga",
+          "recommendation": "Take the ALSA bus to Malaga (from Sevilla - Plaza De Armas to Malaga - Estación de Autobuses). The journey takes about 2 h 45 min. Once you arrive, stroll through the historic centre on foot, then head to Antigua Casa de Guardia, Málaga’s oldest wine tavern (since 1840). It’s perfect for a relaxed aperitivo—think locally made sweet or fortified wines straight from the barrel, chalk-tallied and served with simple tapas. The lively, authentic vibe, friendly local crowd, and ritualistic service (bells signal rounds) make it a must-stop before dinner.",
+          "googleMapsLink": "https://maps.app.goo.gl/BjbGjR1REwX26kZb9",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 217,
+          "dayType": "Input Number",
+          "dayNumber": 6,
+          "subtitle": "[Day 6] Dinner at El Mesón de Cervantes",
+          "recommendation": "El Mesón de Cervantes is one of Málaga’s top-rated tapas restaurants, celebrated for its vibrant atmosphere, creative Mediterranean‑fusion dishes, and outstanding wine list. Diners praise standout tapas like octopus, picanha, and wild‑boar stew, noting “excellent quality and variety” and “professional, friendly service.” Be sure to reserve ahead to secure a table.",
+          "googleMapsLink": "https://maps.app.goo.gl/xQgVx1F1nZy46pzy8",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 218,
+          "dayType": "Input Number",
+          "dayNumber": 7,
+          "subtitle": "[Day 7] Scenic Drive & Local Culture",
+          "recommendation": "Pick up your rental car and drive to El Castillo de Colomares! It is a fairytale-like monument in Benalmádena, built to honor Christopher Columbus. Blending Gothic, Romanesque, and Moorish styles, it tells the story of the Discovery of America through stunning architecture. Highlights include models of Columbus’s ships and the world’s smallest chapel. Surrounded by gardens and sea views, it’s a hidden gem perfect for a half-day cultural escape on the Costa del Sol.",
+          "googleMapsLink": "https://maps.app.goo.gl/Zzxw4EChrM7zxGxn9",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 219,
+          "dayType": "Input Number",
+          "dayNumber": 7,
+          "subtitle": "[Day 7] Dinner at José Carlos García Restaurante",
+          "recommendation": "Located at Muelle Uno overlooking luxury yachts, José Carlos García Restaurante holds a Michelin star for its inventive Andalusian cuisine. Chef García offers two evolving tasting menus that highlight local ingredients and Mediterranean flair. The contemporary, elegant space—with vertical gardens and chillout terrace—adds to the experience. Reservations are essential to secure a seat at this standout culinary destination.",
+          "googleMapsLink": "https://maps.app.goo.gl/yYKx8cdqK7SmyuUE9",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 220,
+          "dayType": "Input Number",
+          "dayNumber": 8,
+          "subtitle": "[Day 8] Adventure on the Caminito del Rey Trail",
+          "recommendation": "Take the RENFE train to Ardales (about 45 min) and join your Caminito del Rey hike. Once notorious as the “world’s most dangerous path,” it’s been fully renovated—now safe for families and offering breathtaking cliffside boardwalks, including the heart-pounding Mirador de Cristal over a 100 m drop. The 3 km route winds through gorges, past ancient fossils, and finishes at a suspension bridge near the aqueduct.",
+          "googleMapsLink": "https://maps.app.goo.gl/1RKF5yB6Eeo2grSt8",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 221,
+          "dayType": "Input Number",
+          "dayNumber": 8,
+          "subtitle": "[Day 8] Dinner at La Cosmo by Dani Carnero",
+          "recommendation": "Dine at La Cosmo, the modern gastro-bar from celebrated chef Dani Carnero, located just steps from Málaga Cathedral. This Bib Gourmand‑recognized spot features an open kitchen, sleek white interiors, and a menu built around top-quality local ingredients. Share creative dishes like hake ensaladilla and gilda, complemented by excellent wines. Reservations are essential—choose the bar seats if you enjoy watching chefs in action.",
+          "googleMapsLink": "https://maps.app.goo.gl/B2JtDxumkwhzRfsy5",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 222,
+          "dayType": "Input Number",
+          "dayNumber": 9,
+          "subtitle": "[Day 9] Arrival in Porto & Riverside Stroll",
+          "recommendation": "Fly to Porto and check into your accommodation in the historic center. Spend your afternoon exploring the atmospheric Ribeira district with its cobbled streets, riverfront views, and colorful facades. Pop into A Vida Portuguesa, a beautifully curated local shop known for its vintage-style Portuguese goods—from soaps and ceramics to gourmet treats. It’s the perfect spot to pick up meaningful souvenirs that celebrate Portugal’s design heritage",
+          "googleMapsLink": "https://maps.app.goo.gl/YT3nqj8efEFC2AyM7",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 223,
+          "dayType": "Input Number",
+          "dayNumber": 9,
+          "subtitle": "[Day 9] Dinner at Ostras & Coisas",
+          "recommendation": "Wrap up your first evening in Porto with a relaxed seafood dinner at Ostras & Coisas. This elegant yet welcoming restaurant specializes in oysters and fresh Atlantic catch, served with refined Portuguese flair. It’s a great way to ease into the city’s rich culinary scene with freshness, flavor, and a river breeze.",
+          "googleMapsLink": "https://maps.app.goo.gl/Zdj1WGiM1v7KMoqA6",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 224,
+          "dayType": "Input Number",
+          "dayNumber": 10,
+          "subtitle": "[Day 10] Port Tasting & Riverside Charm",
+          "recommendation": "Spend the morning visiting one of Porto’s most iconic port wine cellars—Graham’s Port Lodge—for a guided tasting and winery tour. Learn about the rich history of port wine, explore the barrel rooms, and enjoy a tasting with panoramic views of the Douro River. Afterwards, enjoy a leisurely lunch at Graham’s Vinum Restaurant, offering refined Portuguese cuisine paired perfectly with their wines.",
+          "googleMapsLink": "https://maps.app.goo.gl/ioZUXknE5okF5NBJ9",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 225,
+          "dayType": "Input Number",
+          "dayNumber": 10,
+          "subtitle": "[Day 10] Drinks & Evening Out",
+          "recommendation": "As the evening sets in, explore Porto’s cocktail scene. Stop by The Royal Cocktail Club for inventive, expertly crafted drinks in a sleek, stylish setting. If you prefer something more relaxed, head to Bonaparte Downtown, a cozy pub with a great vibe, ideal for winding down your day with drinks and casual bites.",
+          "googleMapsLink": "https://maps.app.goo.gl/ob5zs5P4ULMoV1iD7",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 226,
+          "dayType": "Input Number",
+          "dayNumber": 11,
+          "subtitle": "[Day 11] Explore Local Artisans & Hidden Corners",
+          "recommendation": "Spend your last full day in Porto exploring its rich craft heritage. Visit Prometeu Artesanato to browse a stunning collection of traditional and contemporary Portuguese azulejos (tiles). Then head to Boiler Studio, where you can admire handcrafted ceramics and even join a tile-painting workshop for a unique souvenir. Don’t miss Claus Porto’s flagship store for elegantly designed soaps and fragrances blending heritage with modern flair.",
+          "googleMapsLink": "https://maps.app.goo.gl/87iTSoF19JpLDcu49",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 227,
+          "dayType": "Input Number",
+          "dayNumber": 11,
+          "subtitle": "[Day 11] Afternoon Coffee at Fábrica da Nata",
+          "recommendation": "Indulge in a classic Portuguese treat at Fábrica da Nata, renowned for its freshly baked pastéis de nata. Pair your tart with a traditional Portuguese coffee in a cozy setting.",
+          "googleMapsLink": "https://maps.app.goo.gl/doA7FEXKw27stMBx9",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 228,
+          "dayType": "Input Number",
+          "dayNumber": 11,
+          "subtitle": "[Day 11] Dinner at Mito",
+          "recommendation": "End your journey with dinner at Mito, a sleek modern bistro blending Portuguese ingredients with global culinary techniques. Signature dishes like aged beef and codfish elevate traditional flavors in inventive ways.",
+          "googleMapsLink": "https://maps.app.goo.gl/dnsxa6DqK8cMojLw9",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 229,
+          "dayType": "Input Number",
+          "dayNumber": 12,
+          "subtitle": "[Day 12] Taylor’s Port Cellar & Tasting",
+          "recommendation": "Cross the river to Vila Nova de Gaia and explore Taylor’s Port Cellars, a historic estate founded in 1692. The renovated 300‑year‑old cellars house an engaging audio tour in 13 languages, tracing the art of Port-making and Taylor’s legacy. Sample their iconic wines—Chip Dry White, Late Bottled Vintage, and a 10‑Year‑Old Tawny—as part of the tour. Stay on-site at Barão de Fladgate, Taylor’s riverside restaurant open from 12:30 pm, offering traditional Portuguese cuisine paired with their Port selections. Enjoy a relaxed, gourmet lunch with views over the Douro before returning to Porto’s Centro Histórico.",
+          "googleMapsLink": "https://maps.app.goo.gl/G9HTvw2opGa2GomF9",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 230,
+          "dayType": "Input Number",
+          "dayNumber": 12,
+          "subtitle": "[Day 12] Afternoon Stroll at Mercado do Bolhão",
+          "recommendation": "Head back across the bridge to Porto’s historic district and wander through Mercado do Bolhão, an iconic 19th-century market. Experience vibrant stalls of fresh produce, flowers, and local delicacies. Pick up olives, cheeses, or handcrafted gifts while soaking in authentic Portuguese daily life.",
+          "googleMapsLink": "https://maps.app.goo.gl/y2FYH6xX1ZXzbu3N6",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 231,
+          "dayType": "Input Number",
+          "dayNumber": 12,
+          "subtitle": "[Day 12] Cozy Seafood & Grill Delight",
+          "recommendation": "For a warm, authentic dining experience in Porto, head to Adega Bebe‑Se Mal on Rua de Belomonte. This charming, family-run tavern offers exceptional grilled seafood—clams, sardines, bream—and hearty dishes like seafood rice and house steak. Arrive early or reserve ahead, as space is limited and demand is high on weekends. Note: it's a cash-only spot—ideal for relaxed, flavorful dining away from tourist crowds.",
+          "googleMapsLink": "https://maps.app.goo.gl/3dB2iyq3XYttxxvy5",
+          "showDistanceFromLastStop": false
+        },
+        {
+          "id": 232,
+          "dayType": "Input Number",
+          "dayNumber": 13,
+          "subtitle": "[Day 13] Breakfast at Nata Lisboa",
+          "recommendation": "Before your flight, savor a Portuguese classic at Nata Lisboa. Famous for its flaky, perfectly caramelized pastéis de nata and robust espresso, it’s a cozy and convenient stop in Porto’s city center. Open from 8 AM, it’s ideal for a quick yet satisfying breakfast. Pair your egg tart with a strong coffee and enjoy a sweet final taste of Portugal before heading to the airport.",
+          "googleMapsLink": "https://maps.app.goo.gl/VPHTZGUED9PDACqf7",
+          "showDistanceFromLastStop": false
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 1
+    }
+  }
+}
