@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
 import { SafeImage } from "@/components/custom/safe-image";
 import { Tag } from "@/data/services/tag-service";
 import { getImageUrl } from "@/lib/utils";
@@ -53,7 +52,6 @@ export function ItineraryCard({ itinerary, size = 'medium' }: ItineraryCardProps
 
   // Generate star rating (placeholder - you can implement actual ratings later)
   const rating = 4.5; // This would come from your data
-  const starCount = Math.floor(rating);
 
   // Get size-specific classes
   const getSizeClasses = () => {
@@ -113,52 +111,38 @@ export function ItineraryCard({ itinerary, size = 'medium' }: ItineraryCardProps
                   }
                   
                   return tagList.map((tagName, index) => (
-                    <Badge
+                    <span
                       key={index}
-                      variant="secondary"
-                      className="bg-white/20 text-white border-0 text-xs px-2 py-1 backdrop-blur-sm"
+                      className="bg-white/20 text-white border-0 text-xs px-2 py-1 backdrop-blur-sm rounded-full"
                     >
                       {tagName}
-                    </Badge>
+                    </span>
                   ));
                 })()}
               </div>
             )}
             
             {/* Price badge */}
-            <div className="absolute top-3 right-3">
-              <Badge 
-                variant={isFree ? "secondary" : "default"}
-                className={`text-lg font-bold px-3 py-2 ${
-                  isFree 
-                    ? "bg-green-500 text-white" 
-                    : "bg-white text-text-primary"
-                }`}
-              >
+            <div className="absolute bottom-3 right-3">
+              <span className="text-lg font-bold text-white">
                 {priceDisplay}
-              </Badge>
+              </span>
             </div>
           </div>
           
           {/* Content section with white background */}
           <div className="p-4 bg-white">
-            <h3 className="text-xl font-bold mb-1 line-clamp-1 text-text-primary">
+            <h3 className="text-xl font-bold mb-1 line-clamp-1 text-text-primary font-albert-sans">
               {title}
             </h3>
-            <p className="text-sm text-text-muted mb-2 line-clamp-1">
+            <p className="text-sm text-text-muted mb-2 line-clamp-1 font-poppins">
               {location}
             </p>
             
             {/* Rating */}
             <div className="flex items-center gap-1">
-              <div className="flex text-yellow-400">
-                {Array.from({ length: 5 }, (_, i) => (
-                  <span key={i} className={`text-sm ${i < starCount ? 'text-yellow-400' : 'text-text-muted'}`}>
-                    ★
-                  </span>
-                ))}
-              </div>
-              <span className="text-sm ml-1 text-text-primary">{rating}</span>
+              <span className="text-sm text-text-primary">★</span>
+              <span className="text-sm ml-1 text-text-primary font-poppins">{rating}</span>
             </div>
           </div>
         </div>
@@ -196,52 +180,38 @@ export function ItineraryCard({ itinerary, size = 'medium' }: ItineraryCardProps
                   }
                   
                   return tagList.map((tagName, index) => (
-                    <Badge
+                    <span
                       key={index}
-                      variant="secondary"
-                      className="bg-white/20 text-white border-0 text-xs px-2 py-1 backdrop-blur-sm"
+                      className="bg-white/20 text-white border-0 text-xs px-2 py-1 backdrop-blur-sm rounded-full"
                     >
                       {tagName}
-                    </Badge>
+                    </span>
                   ));
                 })()}
               </div>
             )}
             
             {/* Price badge */}
-            <div className="absolute top-3 right-3">
-              <Badge 
-                variant={isFree ? "secondary" : "default"}
-                className={`text-lg font-bold px-3 py-2 ${
-                  isFree 
-                    ? "bg-green-500 text-white" 
-                    : "bg-white text-text-primary"
-                }`}
-              >
+            <div className="absolute bottom-3 right-3">
+              <span className="text-lg font-bold text-white">
                 {priceDisplay}
-              </Badge>
+              </span>
             </div>
             
             {/* Content overlay at bottom */}
             <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-              <h3 className="text-xl font-bold mb-1 line-clamp-1">
+              <h3 className="text-xl font-bold mb-1 line-clamp-1 font-albert-sans">
                 {title}
               </h3>
-              <p className="text-sm opacity-90 mb-2 line-clamp-1">
+              <p className="text-sm opacity-90 mb-2 line-clamp-1 font-poppins">
                 {location}
               </p>
               
-              {/* Rating */}
-              <div className="flex items-center gap-1">
-                <div className="flex text-yellow-400">
-                  {Array.from({ length: 5 }, (_, i) => (
-                    <span key={i} className={`text-sm ${i < starCount ? 'text-yellow-400' : 'text-text-muted'}`}>
-                      ★
-                    </span>
-                  ))}
-                </div>
-                <span className="text-sm ml-1">{rating}</span>
-              </div>
+            {/* Rating */}
+            <div className="flex items-center gap-1">
+              <span className="text-sm text-white">★</span>
+              <span className="text-sm ml-1 text-white font-poppins">{rating}</span>
+            </div>
             </div>
           </div>
         </div>

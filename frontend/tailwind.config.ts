@@ -9,6 +9,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'albert-sans': ['Albert Sans', 'sans-serif'],
+        'poppins': ['Poppins', 'sans-serif'],
+      },
       colors: {
         // Custom Brand Colors - Tagelong Orange (#F69E20)
         brand: {

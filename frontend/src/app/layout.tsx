@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Albert_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 
 import { getGlobalData, getGlobalPageMetadata } from "@/data/loaders";
@@ -17,6 +18,19 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+});
+
+const albertSans = Albert_Sans({
+  subsets: ["latin"],
+  variable: "--font-albert-sans",
+  display: "swap",
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -55,7 +69,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${albertSans.variable} ${poppins.variable} antialiased`}
       >
         <Toaster position="bottom-center" />
         <Header data={header} />
