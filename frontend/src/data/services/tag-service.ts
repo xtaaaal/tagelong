@@ -171,6 +171,12 @@ export function getTagIconName(tagSlug: string): string {
 export function getTagIconUrl(tag: Tag): string {
   // If tag has an icon from backend, use it
   if (tag.icon?.url) {
+    // Check if the URL is already complete (starts with http/https)
+    if (tag.icon.url.startsWith('http://') || tag.icon.url.startsWith('https://')) {
+      return tag.icon.url;
+    }
+    
+    // If it's a relative URL, prepend the base URL
     const baseUrl = getStrapiURL();
     return `${baseUrl}${tag.icon.url}`;
   }
