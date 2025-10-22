@@ -1,22 +1,22 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Tag, getTagsWithIcons, getTagIconName, getTagIconUrl } from "@/data/services/tag-service";
+import { Tag, getTagsWithIcons, getTagIconUrl } from "@/data/services/tag-service";
 
 // Custom SVG Icon Component with direct fill control
 interface CategoryIconProps {
-  iconName: string;
+  iconUrl: string;
   className?: string;
   fill?: string;
 }
 
-function CategoryIcon({ iconName, className = "w-6 h-6", fill = "currentColor" }: CategoryIconProps) {
+function CategoryIcon({ iconUrl, className = "w-6 h-6", fill = "currentColor" }: CategoryIconProps) {
   return (
     <div 
       className={className}
       style={{ 
-        WebkitMask: `url(/assets/icons/${iconName}.svg) no-repeat center / contain`,
-        mask: `url(/assets/icons/${iconName}.svg) no-repeat center / contain`,
+        WebkitMask: `url(${iconUrl}) no-repeat center / contain`,
+        mask: `url(${iconUrl}) no-repeat center / contain`,
         backgroundColor: fill,
         transition: 'background-color 0.2s ease-in-out',
       }}
@@ -116,7 +116,7 @@ export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryF
             aria-label="Scroll left"
           >
             <CategoryIcon
-              iconName="arrow-left"
+              iconUrl="/assets/icons/arrow-left.svg"
               className="w-5 h-5"
               fill="#6B7280"
             />
@@ -136,7 +136,7 @@ export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryF
           {tags.map((tag) => {
             const isActive = selectedCategory === tag.slug;
             const isHovered = hoveredCategory === tag.slug;
-            const iconName = getTagIconName(tag.slug);
+            const iconUrl = getTagIconUrl(tag);
             
             return (
               <button
@@ -153,7 +153,7 @@ export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryF
               >
                 <div className="w-6 h-6 transition-all duration-200">
                   <CategoryIcon
-                    iconName={iconName}
+                    iconUrl={iconUrl}
                     className="w-6 h-6 transition-all duration-200"
                     fill={isActive ? '#F69E20' : (isHovered ? '#F69E20' : '#6B7280')}
                   />
@@ -174,7 +174,7 @@ export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryF
             aria-label="Scroll right"
           >
             <CategoryIcon
-              iconName="arrow-right"
+              iconUrl="/assets/icons/arrow-right.svg"
               className="w-5 h-5"
               fill="#6B7280"
             />
