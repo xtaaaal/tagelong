@@ -110,15 +110,31 @@ class ProductionDataMigrator {
     for (const tag of tagsData.data) {
       const tagData = {
         data: {
-          name: tag.attributes.name,
-          slug: tag.attributes.slug,
-          description: tag.attributes.description || null,
-          order: tag.attributes.order || 0
+          name: tag.name,
+          slug: tag.slug,
+          description: tag.description || null,
+          order: tag.order || 0
         }
       };
 
+      // Handle icon import - try to find existing icon or skip if not found
+      if (tag.icon) {
+        try {
+          // Try to find if the icon already exists in production
+          const existingIcon = await this.findExistingMedia(tag.icon);
+          if (existingIcon) {
+            tagData.data.icon = existingIcon.id;
+            console.log(`✅ Found existing icon for ${tag.name}`);
+          } else {
+            console.log(`⚠️  Icon not found in production for ${tag.name}, skipping icon`);
+          }
+        } catch (error) {
+          console.log(`⚠️  Could not import icon for ${tag.name}:`, error.message);
+        }
+      }
+
       await this.createEntry('tags', tagData);
-      console.log(`✅ Imported tag: ${tag.attributes.name}`);
+      console.log(`✅ Imported tag: ${tag.name}${tag.icon ? ' (with icon)' : ''}`);
     }
   }
 
@@ -128,43 +144,83 @@ class ProductionDataMigrator {
     for (const itinerary of itinerariesData.data) {
       const itineraryData = {
         data: {
-          title: itinerary.attributes.title,
-          country: itinerary.attributes.country,
-          region: itinerary.attributes.region || null,
-          city: itinerary.attributes.city || null,
-          price: itinerary.attributes.price || null,
+          title: itinerary.title,
+          country: itinerary.country,
+          region: itinerary.region || null,
+          city: itinerary.city || null,
+          price: itinerary.price || null,
           // Remove currency field (no longer exists)
-          isFree: itinerary.attributes.isFree || false,
-          highlights: itinerary.attributes.highlights || null,
-          publishStatus: itinerary.attributes.publishStatus || 'draft',
+          isFree: itinerary.isFree || false,
+          highlights: itinerary.highlights || null,
+          publishStatus: itinerary.publishStatus || 'draft',
           // Add new themeLayout field
           themeLayout: 'Daily Style', // Default value
           // Transform Day components
-          Day: this.transformDayComponents(itinerary.attributes.Day || [])
+          Day: await this.transformDayComponents(itinerary.Day || [])
         }
       };
 
+      // Handle mainPicture import
+      if (itinerary.mainPicture) {
+        try {
+          const existingMainPicture = await this.findExistingMedia(itinerary.mainPicture);
+          if (existingMainPicture) {
+            itineraryData.data.mainPicture = existingMainPicture.id;
+            console.log(`✅ Found existing mainPicture for ${itinerary.title}`);
+          } else {
+            console.log(`⚠️  MainPicture not found in production for ${itinerary.title}, skipping mainPicture`);
+          }
+        } catch (error) {
+          console.log(`⚠️  Could not import mainPicture for ${itinerary.title}:`, error.message);
+        }
+      }
+
       // Handle tags relation
-      if (itinerary.attributes.tags?.data) {
-        itineraryData.data.tags = itinerary.attributes.tags.data.map(tag => tag.id);
+      if (itinerary.tags?.data) {
+        itineraryData.data.tags = itinerary.tags.data.map(tag => tag.id);
       }
 
       await this.createEntry('itineraries', itineraryData);
-      console.log(`✅ Imported itinerary: ${itinerary.attributes.title}`);
+      console.log(`✅ Imported itinerary: ${itinerary.title}`);
     }
   }
 
-  transformDayComponents(days) {
-    return days.map(day => ({
-      dayNumber: day.dayNumber || null,
-      subtitle: day.subtitle || null,
-      picture: [], // Will be empty for now
-      content: this.transformRecommendationToRichText(day.recommendation), // Transform old field
-      googleMapsLink: day.googleMapsLink || null, // Will be single string for now
-      youtubeLink: null, // Empty for now
-      showDistanceFromLastStop: day.showDistanceFromLastStop || false,
-      fileUpload: null // Will be empty for now
-    }));
+  async transformDayComponents(days) {
+    const transformedDays = [];
+    
+    for (const day of days) {
+      const dayData = {
+        dayNumber: day.dayNumber || null,
+        subtitle: day.subtitle || null,
+        picture: [], // Will be populated with existing media IDs
+        content: this.transformRecommendationToRichText(day.recommendation), // Transform old field
+        googleMapsLink: day.googleMapsLink || null, // Will be single string for now
+        youtubeLink: null, // Empty for now
+        showDistanceFromLastStop: day.showDistanceFromLastStop || false,
+        fileUpload: null // Will be empty for now
+      };
+
+      // Handle picture import for this day
+      if (day.picture && Array.isArray(day.picture)) {
+        for (const picture of day.picture) {
+          try {
+            const existingPicture = await this.findExistingMedia(picture);
+            if (existingPicture) {
+              dayData.picture.push(existingPicture.id);
+              console.log(`✅ Found existing picture for day ${day.dayNumber}: ${picture.name}`);
+            } else {
+              console.log(`⚠️  Picture not found in production for day ${day.dayNumber}: ${picture.name}`);
+            }
+          } catch (error) {
+            console.log(`⚠️  Could not import picture for day ${day.dayNumber}:`, error.message);
+          }
+        }
+      }
+
+      transformedDays.push(dayData);
+    }
+    
+    return transformedDays;
   }
 
   transformRecommendationToRichText(recommendation) {
@@ -205,6 +261,45 @@ class ProductionDataMigrator {
       }
     });
     return response.data;
+  }
+
+  async findExistingMedia(mediaData) {
+    try {
+      // Try to find media by name first
+      const response = await axios.get(`${this.productionUrl}/api/upload/files`, {
+        headers: {
+          'Authorization': `Bearer ${this.apiToken}`,
+          'Content-Type': 'application/json'
+        },
+        params: {
+          'filters[name][$eq]': mediaData.name
+        }
+      });
+
+      if (response.data && response.data.length > 0) {
+        return response.data[0];
+      }
+
+      // If not found by name, try by hash
+      const hashResponse = await axios.get(`${this.productionUrl}/api/upload/files`, {
+        headers: {
+          'Authorization': `Bearer ${this.apiToken}`,
+          'Content-Type': 'application/json'
+        },
+        params: {
+          'filters[hash][$eq]': mediaData.hash
+        }
+      });
+
+      if (hashResponse.data && hashResponse.data.length > 0) {
+        return hashResponse.data[0];
+      }
+
+      return null;
+    } catch (error) {
+      console.log(`⚠️  Error searching for media: ${error.message}`);
+      return null;
+    }
   }
 }
 

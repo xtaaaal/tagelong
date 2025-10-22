@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ItineraryCard, ItineraryCardSkeleton } from "./itinerary-card";
+import { MasonryGrid } from "./masonry-grid";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { Tag } from "@/data/services/tag-service";
@@ -88,17 +89,48 @@ export function PopularItineraries({
     return categoryTitles[category] || "Popular Now";
   };
 
+  // Function to determine card size based on index and content - matches the exact 12-column pattern
+  const getCardSize = (index: number, itinerary: any): 'small' | 'medium' | 'large' | 'extra-large' | 'wide-small' | 'wide-medium' | 'wide-large' | 'wide-extra-large' => {
+    // Based on the 12-column grid pattern:
+    // Row 1: 6 columns, 3 columns, 3 columns
+    // Row 2: 3 columns, 3 columns, 6 columns  
+    // Row 3: 6 columns, 3 columns, 3 columns
+    // Row 4: 3 columns, 3 columns, 6 columns
+    // Pattern repeats every 4 rows (12 cards)
+    
+    const exactPattern = [
+      'extra-large',    // Row 1, Card 1: 6 columns (Patagonia Wilderness Expedition)
+      'medium',         // Row 1, Card 2: 3 columns (Greek Islands & Ancient History)
+      'medium',         // Row 1, Card 3: 3 columns (Canadian Rockies & Wildlife Safari)
+      'medium',         // Row 2, Card 1: 3 columns (Jordan Petra & Wadi Rum Expedition)
+      'medium',         // Row 2, Card 2: 3 columns (Scottish Highlands & Whisky Trail)
+      'wide-large',     // Row 2, Card 3: 6 columns (Peruvian Andes & Amazon Adventure)
+      'medium',         // Row 3, Card 1: 3 columns (Vietnam Food & Culture Journey)
+      'medium',         // Row 3, Card 2: 3 columns (New Zealand South Island Explorer)
+      'wide-large',     // Row 3, Card 3: 6 columns (Swiss Alps & Chocolate Discovery)
+      'extra-large',    // Row 4, Card 1: 6 columns (Sun, Wine & Culture)
+      'medium',         // Row 4, Card 2: 3 columns (Moroccan Desert Odyssey)
+      'medium'          // Row 4, Card 3: 3 columns (Northern Lights Adventure)
+    ];
+    
+    // Use index to cycle through the exact pattern
+    const patternIndex = index % exactPattern.length;
+    return exactPattern[patternIndex] as 'small' | 'medium' | 'large' | 'extra-large' | 'wide-small' | 'wide-medium' | 'wide-large' | 'wide-extra-large';
+  };
+
   if (loading) {
     return (
       <section className="py-12 px-4 max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold text-text-primary">Loading...</h2>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <MasonryGrid>
           {Array.from({ length: 8 }, (_, i) => (
-            <ItineraryCardSkeleton key={i} />
+            <div key={i} className={getCardSize(i, {})}>
+              <ItineraryCardSkeleton />
+            </div>
           ))}
-        </div>
+        </MasonryGrid>
       </section>
     );
   }
@@ -139,14 +171,15 @@ export function PopularItineraries({
       </div>
 
       {/* Itinerary Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {filteredItineraries.map((itinerary) => (
+      <MasonryGrid>
+        {filteredItineraries.map((itinerary, index) => (
           <ItineraryCard
             key={itinerary.documentId}
             itinerary={itinerary}
+            size={getCardSize(index, itinerary)}
           />
         ))}
-      </div>
+      </MasonryGrid>
 
       {/* Show count */}
       <div className="text-center mt-8">

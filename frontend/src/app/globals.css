@@ -167,3 +167,183 @@ body {
 /* ************************** */
 /* markdown preview end       */
 /* ************************** */
+
+/* ************************** */
+/* Masonry Grid Layout       */
+/* ************************** */
+
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 5px; /* Much smaller base row height */
+  gap: 20px;
+  padding: 0;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 639px) {
+  .masonry-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .masonry-item-small,
+  .masonry-item-medium,
+  .masonry-item-large,
+  .masonry-item-extra-large,
+  .masonry-item-wide-small,
+  .masonry-item-wide-medium,
+  .masonry-item-wide-large,
+  .masonry-item-wide-extra-large {
+    grid-column: unset;
+    grid-row-end: unset;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .masonry-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    display: grid;
+  }
+  
+  .masonry-item-small,
+  .masonry-item-medium,
+  .masonry-item-large,
+  .masonry-item-extra-large,
+  .masonry-item-wide-small,
+  .masonry-item-wide-medium,
+  .masonry-item-wide-large,
+  .masonry-item-wide-extra-large {
+    grid-column: span 1;
+    grid-row-end: span 8;
+    width: unset;
+    margin-bottom: unset;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+
+/* Card size variations with column spans for 12-column grid */
+.masonry-item-small {
+  grid-row-end: span 6; /* ~30px height */
+  grid-column: span 3; /* 3 columns */
+}
+
+.masonry-item-medium {
+  grid-row-end: span 8; /* ~40px height */
+  grid-column: span 3; /* 3 columns */
+}
+
+.masonry-item-large {
+  grid-row-end: span 10; /* ~50px height */
+  grid-column: span 3; /* 3 columns */
+}
+
+.masonry-item-extra-large {
+  grid-row-end: span 12; /* ~60px height */
+  grid-column: span 6; /* 6 columns */
+}
+
+/* Special wide cards that span 6 columns */
+.masonry-item-wide-small {
+  grid-row-end: span 7; /* ~35px height */
+  grid-column: span 6; /* 6 columns */
+}
+
+.masonry-item-wide-medium {
+  grid-row-end: span 9; /* ~45px height */
+  grid-column: span 6; /* 6 columns */
+}
+
+.masonry-item-wide-large {
+  grid-row-end: span 11; /* ~55px height */
+  grid-column: span 6; /* 6 columns */
+}
+
+.masonry-item-wide-extra-large {
+  grid-row-end: span 13; /* ~65px height */
+  grid-column: span 6; /* 6 columns */
+}
+
+/* Responsive card sizing */
+@media (max-width: 639px) {
+  .masonry-item-small,
+  .masonry-item-medium,
+  .masonry-item-large,
+  .masonry-item-extra-large,
+  .masonry-item-wide-small,
+  .masonry-item-wide-medium,
+  .masonry-item-wide-large,
+  .masonry-item-wide-extra-large {
+    grid-column: unset;
+    grid-row-end: unset;
+    width: 100%;
+    margin-bottom: 16px;
+    height: auto;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .masonry-item-small {
+    grid-row-end: span 6;
+    grid-column: span 3; /* 3 columns */
+  }
+  
+  .masonry-item-medium {
+    grid-row-end: span 13;
+    grid-column: span 3; /* 3 columns */
+  }
+  
+  .masonry-item-large {
+    grid-row-end: span 10;
+    grid-column: span 3; /* 3 columns */
+  }
+  
+  .masonry-item-extra-large {
+    grid-row-end: span 12;
+    grid-column: span 6; /* 6 columns */
+  }
+  
+  .masonry-item-wide-small {
+    grid-row-end: span 7;
+    grid-column: span 6; /* 6 columns */
+  }
+  
+  .masonry-item-wide-medium {
+    grid-row-end: span 9;
+    grid-column: span 6; /* 6 columns */
+  }
+  
+  .masonry-item-wide-large {
+    grid-row-end: span 11;
+    grid-column: span 6; /* 6 columns */
+  }
+  
+  .masonry-item-wide-extra-large {
+    grid-row-end: span 13;
+    grid-column: span 6; /* 6 columns */
+  }
+}
+
+/* Smooth transitions for masonry items */
+.masonry-item-small,
+.masonry-item-medium,
+.masonry-item-large,
+.masonry-item-extra-large,
+.masonry-item-wide-small,
+.masonry-item-wide-medium,
+.masonry-item-wide-large,
+.masonry-item-wide-extra-large {
+  transition: all 0.3s ease-in-out;
+}

@@ -228,7 +228,6 @@ class ItineraryAPIImporter {
       city: row.city?.trim() || null,
       tags: await this.parseTags(row.tags),
       price: this.parseDecimal(row.price),
-      currency: row.currency?.trim() || 'USD',
       isFree: this.parseBoolean(row.isFree),
       highlights: row.highlights?.trim() || null,
       publishStatus: this.parseEnumValue(row.publishStatus, ['draft', 'public', 'private']) || 'draft',
@@ -325,16 +324,15 @@ class ItineraryAPIImporter {
         }
 
         const day = {
-          dayType: dayType,
           dayNumber: dayNumber,
           subtitle: formattedSubtitle,
-          recommendation: processedRecommendation,
+          content: processedRecommendation,
           googleMapsLink: entry.googleMapsLink?.trim() || null,
           showDistanceFromLastStop: this.parseBoolean(entry.showDistanceFromLastStop)
         };
         
         // Only add days that have meaningful content
-        if (day.subtitle || day.recommendation) {
+        if (day.subtitle || day.content) {
           days.push(day);
         }
       });
