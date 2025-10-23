@@ -5,6 +5,7 @@ import { getUserMeLoader } from "@/data/services/get-user-me-loader";
 import { Logo } from "@/components/custom/logo";
 import { Button } from "@/components/ui/button";
 import { LogoutButton } from "./logout-button";
+import { SignInDropdown } from "./signin-dropdown";
 
 interface HeaderProps {
   data?: {
@@ -20,6 +21,7 @@ interface HeaderProps {
     };
   };
 }
+
 
 function LoggedInUser({ userData }: { readonly userData: any }) {
   return (
@@ -44,9 +46,7 @@ export async function Header({ data = {} }: Readonly<HeaderProps>) {
           {user.ok ? (
             <LoggedInUser userData={user.data} />
           ) : (
-            <Link href={ctaButton?.url || '/signin'}>
-              <Button>{ctaButton?.text || 'Sign In'}</Button>
-            </Link>
+            <SignInDropdown />
           )}
         </div>
       </div>

@@ -113,7 +113,7 @@ export function SearchHero({ onSearch }: SearchHeroProps) {
   // Show a simple version during server-side render to prevent hydration issues
   if (!isClient) {
     return (
-      <div className="relative py-4 px-4" style={{background: 'linear-gradient(180deg, rgba(246, 158, 32, 0) 0%, rgba(246, 158, 32, 0.07) 100%)'}}>
+      <div className="relative py-4 px-4 md:py-8 md:px-8" style={{background: 'linear-gradient(180deg, rgba(246, 158, 32, 0) 0%, rgba(246, 158, 32, 0.07) 100%)'}}>
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6">
             Explore your <span className="text-brand-500">journey</span>
@@ -130,7 +130,7 @@ export function SearchHero({ onSearch }: SearchHeroProps) {
 
   return (
     <>
-      <div className="relative py-4 px-4" style={{background: 'linear-gradient(180deg, rgba(246, 158, 32, 0) 0%, rgba(246, 158, 32, 0.07) 100%)'}}>
+      <div className="relative py-4 px-4 md:py-8 md:px-8" style={{background: 'linear-gradient(180deg, rgba(246, 158, 32, 0) 0%, rgba(246, 158, 32, 0.07) 100%)'}}>
         <div className="max-w-4xl mx-auto text-center">
           {/* Hero Title */}
           <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6">
