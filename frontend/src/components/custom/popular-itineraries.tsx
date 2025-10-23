@@ -120,7 +120,7 @@ export function PopularItineraries({
 
   if (loading) {
     return (
-      <section className="py-12 px-4 max-w-7xl mx-auto">
+      <section className="py-2 px-4 max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold text-text-primary">Loading...</h2>
         </div>
@@ -137,7 +137,7 @@ export function PopularItineraries({
 
   if (filteredItineraries.length === 0) {
     return (
-      <section className="py-12 px-4 max-w-7xl mx-auto">
+      <section className="py-2 px-4 max-w-7xl mx-auto">
         <div className="text-center py-12">
           <h2 className="text-2xl font-bold text-text-primary mb-4">No itineraries found</h2>
           <p className="text-text-secondary mb-6">
@@ -155,7 +155,7 @@ export function PopularItineraries({
   }
 
   return (
-    <section className="py-12 px-4 max-w-7xl mx-auto">
+    <section className="py-2 px-4 max-w-7xl mx-auto">
       {/* Section Header */}
       <div className="flex items-center justify-between mb-8">
         <h2 className="text-3xl font-bold text-text-primary">

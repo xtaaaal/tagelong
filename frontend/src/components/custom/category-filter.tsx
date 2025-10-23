@@ -106,7 +106,7 @@ export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryF
   }
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto px-4 py-6">
+    <div className="relative w-full max-w-7xl mx-auto px-4 py-0">
       <div className="flex items-center justify-center">
         {/* Left Arrow */}
         {canScrollLeft && (
@@ -127,7 +127,7 @@ export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryF
         <div
           ref={scrollContainerRef}
           onScroll={checkScrollPosition}
-          className="flex gap-3 overflow-x-auto scrollbar-hide px-8 py-2"
+          className="flex gap-3 overflow-x-auto scrollbar-hide px-0 py-2"
           style={{
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
