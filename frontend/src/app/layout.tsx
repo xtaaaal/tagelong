@@ -8,6 +8,7 @@ import { getGlobalData, getGlobalPageMetadata } from "@/data/loaders";
 import { Toaster } from "@/components/ui/sonner";
 import { Header } from "@/components/custom/header";
 import { Footer } from "@/components/custom/footer";
+import { AuthProvider } from "@/components/providers/auth-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -71,10 +72,12 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${albertSans.variable} ${poppins.variable} antialiased`}
       >
-        <Toaster position="bottom-center" />
-        <Header data={header} />
-        {children}
-        <Footer data={footer} />
+        <AuthProvider>
+          <Toaster position="bottom-center" />
+          <Header data={header} />
+          {children}
+          <Footer data={footer} />
+        </AuthProvider>
       </body>
     </html>
   );

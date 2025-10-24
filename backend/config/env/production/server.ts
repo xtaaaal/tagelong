@@ -1,11 +1,11 @@
 export default ({ env }) => ({
   // Server configuration
   host: env('HOST', '0.0.0.0'),
-  port: env.int('PORT', 1337),
+  port: env.int('PORT', 10000),
   
-  // Enable trust proxy for Railway deployment
+  // Enable trust proxy for Render deployment
   proxy: env.bool('IS_PROXIED', true),
   
-  // Railway specific configuration
-  url: env('RAILWAY_STATIC_URL', env('PUBLIC_URL', `http://${env('HOST', '0.0.0.0')}:${env.int('PORT', 1337)}`)),
+  // Render specific configuration
+  url: env('RENDER_EXTERNAL_URL', env('PUBLIC_URL', `https://api.tagelong.com`)),
 });
