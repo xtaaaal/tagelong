@@ -129,7 +129,7 @@ export default async function ItineraryDetailPage({ params }: ItineraryDetailPag
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">Highlights</h2>
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <p className="text-text-secondary leading-relaxed text-lg text-center">
               {highlights || "Discover the beauty and culture of this amazing destination with our carefully crafted itinerary."}
             </p>

@@ -114,11 +114,11 @@ export function SearchHero({ onSearch }: SearchHeroProps) {
   if (!isClient) {
     return (
       <div className="relative py-4 px-4 md:py-8 md:px-8" style={{background: 'linear-gradient(180deg, rgba(246, 158, 32, 0) 0%, rgba(246, 158, 32, 0.07) 100%)'}}>
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6">
             Explore your <span className="text-brand-500">journey</span>
           </h1>
-          <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 max-w-4xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 max-w-6xl mx-auto">
             <div className="text-center text-text-muted">
               Loading search form...
             </div>
@@ -131,7 +131,7 @@ export function SearchHero({ onSearch }: SearchHeroProps) {
   return (
     <>
       <div className="relative py-4 px-4 md:py-8 md:px-8" style={{background: 'linear-gradient(180deg, rgba(246, 158, 32, 0) 0%, rgba(246, 158, 32, 0.07) 100%)'}}>
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto text-center">
           {/* Hero Title */}
           <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6">
             Explore your <span className="text-brand-500">journey</span>
@@ -160,7 +160,7 @@ export function SearchHero({ onSearch }: SearchHeroProps) {
           </div>
 
           {/* Desktop Search Form */}
-          <div className="hidden md:block bg-white rounded-2xl shadow-lg p-6 md:p-8 max-w-4xl mx-auto">
+          <div className="hidden md:block bg-white rounded-2xl shadow-lg p-6 md:p-8 max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
               {/* Where */}
               <div className="space-y-2">
@@ -173,7 +173,7 @@ export function SearchHero({ onSearch }: SearchHeroProps) {
                     placeholder="Search destinations"
                     value={filters.destination}
                     onChange={(e) => handleInputChange("destination", e.target.value)}
-                    className="pl-10 h-12 border-navy-200 rounded-xl"
+                    className="pl-10 h-12 border-navy-200 rounded-full"
                   />
                 </div>
               </div>
@@ -187,7 +187,7 @@ export function SearchHero({ onSearch }: SearchHeroProps) {
                   value={filters.duration}
                   onValueChange={(value) => handleInputChange("duration", value)}
                 >
-                  <SelectTrigger className="h-12 border-navy-200 rounded-xl">
+                  <SelectTrigger className="h-12 border-navy-200 rounded-full">
                     <div className="flex items-center gap-2">
                       <Calendar className="text-text-muted w-4 h-4" />
                       <SelectValue placeholder="Any duration" />
@@ -208,27 +208,40 @@ export function SearchHero({ onSearch }: SearchHeroProps) {
                 <label className="block text-sm font-medium text-text-secondary text-left">
                   Category
                 </label>
-                <Select
-                  value={filters.category}
-                  onValueChange={(value) => handleInputChange("category", value)}
-                >
-                  <SelectTrigger className="h-12 border-navy-200 rounded-xl">
-                    <div className="flex items-center gap-2">
-                      <Grid3x3 className="text-text-muted w-4 h-4" />
-                      <SelectValue placeholder="Any category" />
-                    </div>
-                  </SelectTrigger>
-                  <SelectContent>
-                    {categories.map((category) => (
-                      <SelectItem key={category.value} value={category.value}>
-                        {category.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <div className="flex gap-2">
+                  <Select
+                    value={filters.category}
+                    onValueChange={(value) => handleInputChange("category", value)}
+                  >
+                    <SelectTrigger className="h-12 border-navy-200 rounded-full flex-1">
+                      <div className="flex items-center gap-2">
+                        <Grid3x3 className="text-text-muted w-4 h-4" />
+                        <SelectValue placeholder="Any category" />
+                      </div>
+                    </SelectTrigger>
+                    <SelectContent>
+                      {categories.map((category) => (
+                        <SelectItem key={category.value} value={category.value}>
+                          {category.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  
+                  {/* Search Button */}
+                  <Button
+                    onClick={handleSearch}
+                    className="h-12 w-12 p-0 rounded-full bg-white border border-[#F69E20] hover:bg-orange-50 transition-colors"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15.7639 14.6305L13.505 12.3796C14.7296 10.8668 15.327 8.94171 15.174 7.0014C15.021 5.06109 14.1293 3.25347 12.6827 1.95126C11.2362 0.649061 9.34511 -0.0484305 7.39944 0.00261663C5.45378 0.0536637 3.60188 0.849357 2.22562 2.22562C0.849357 3.60188 0.0536637 5.45378 0.00261663 7.39944C-0.0484305 9.34511 0.649061 11.2362 1.95126 12.6827C3.25347 14.1293 5.06109 15.021 7.0014 15.174C8.94171 15.327 10.8668 14.7296 12.3796 13.505L14.6305 15.7639C14.7047 15.8387 14.793 15.8981 14.8902 15.9386C14.9875 15.9791 15.0918 16 15.1972 16C15.3026 16 15.4069 15.9791 15.5041 15.9386C15.6014 15.8981 15.6897 15.8387 15.7639 15.7639C15.8387 15.6897 15.8981 15.6014 15.9386 15.5041C15.9791 15.4069 16 15.3026 16 15.1972C16 15.0918 15.9791 14.9875 15.9386 14.8902C15.8981 14.793 15.8387 14.7047 15.7639 14.6305ZM1.62801 7.61441C1.62801 6.43042 1.97911 5.27301 2.6369 4.28855C3.2947 3.30409 4.22965 2.5368 5.32352 2.0837C6.41739 1.63061 7.62105 1.51205 8.7823 1.74304C9.94355 1.97403 11.0102 2.54418 11.8474 3.38139C12.6846 4.2186 13.2548 5.28528 13.4858 6.44652C13.7168 7.60777 13.5982 8.81144 13.1451 9.90531C12.692 10.9992 11.9247 11.9341 10.9403 12.5919C9.95582 13.2497 8.79841 13.6008 7.61441 13.6008C6.02672 13.6008 4.50406 12.9701 3.38139 11.8474C2.25872 10.7248 1.62801 9.20211 1.62801 7.61441Z" fill="#F69E20"/>
+                      </svg>
+
+                  </Button>
+                </div>
               </div>
 
-              {/* Search Button */}
+              {/* View All Destinations Button */}
               <div className="md:col-span-1">
                 <Button 
                   onClick={handleSearch}
@@ -272,7 +285,7 @@ export function SearchHero({ onSearch }: SearchHeroProps) {
                     placeholder="Search destinations"
                     value={filters.destination}
                     onChange={(e) => handleInputChange("destination", e.target.value)}
-                    className="pl-10 h-12 border-navy-200 rounded-xl"
+                    className="pl-10 h-12 border-navy-200 rounded-full"
                   />
                 </div>
               </div>
@@ -286,7 +299,7 @@ export function SearchHero({ onSearch }: SearchHeroProps) {
                   value={filters.duration}
                   onValueChange={(value) => handleInputChange("duration", value)}
                 >
-                  <SelectTrigger className="h-12 border-navy-200 rounded-xl">
+                  <SelectTrigger className="h-12 border-navy-200 rounded-full">
                     <div className="flex items-center gap-2">
                       <Calendar className="text-text-muted w-4 h-4" />
                       <SelectValue placeholder="Any duration" />
@@ -311,7 +324,7 @@ export function SearchHero({ onSearch }: SearchHeroProps) {
                   value={filters.category}
                   onValueChange={(value) => handleInputChange("category", value)}
                 >
-                  <SelectTrigger className="h-12 border-navy-200 rounded-xl">
+                  <SelectTrigger className="h-12 border-navy-200 rounded-full">
                     <div className="flex items-center gap-2">
                       <Grid3x3 className="text-text-muted w-4 h-4" />
                       <SelectValue placeholder="Any category" />

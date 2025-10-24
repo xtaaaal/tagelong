@@ -182,7 +182,7 @@ export function PopularItineraries({
       </MasonryGrid>
 
       {/* Show count */}
-      <div className="text-center mt-8">
+      <div className="text-center my-8">
         <p className="text-text-secondary">
           Showing {filteredItineraries.length} of {itineraries.length} destinations
         </p>
