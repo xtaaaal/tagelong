@@ -37,7 +37,7 @@ export default function HomePageClient({ initialItineraries }: HomePageClientPro
   };
 
   return (
-    <main className="min-h-screen bg-navy-50">
+    <main className="min-h-screen bg-white">
       {/* Hero Section with Search */}
       <SearchHero onSearch={handleSearch} />
       

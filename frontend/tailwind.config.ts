@@ -10,6 +10,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        'sans': ['Poppins', 'sans-serif'],
         'albert-sans': ['Albert Sans', 'sans-serif'],
         'poppins': ['Poppins', 'sans-serif'],
       },

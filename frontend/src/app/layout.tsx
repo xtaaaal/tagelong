@@ -70,7 +70,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${albertSans.variable} ${poppins.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${albertSans.variable} ${poppins.variable} antialiased bg-white`}
       >
         <AuthProvider>
           <Toaster position="bottom-center" />
